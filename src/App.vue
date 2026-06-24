@@ -1,5 +1,5 @@
 <script setup>
-import { ref, shallowRef, computed, onMounted } from 'vue'
+import { ref, shallowRef, computed, onMounted, watch } from 'vue'
 import crossfilter from 'crossfilter2'
 import InfluenceNetwork from './widgets/InfluenceNetwork.vue'
 import Timeline from './widgets/Timeline.vue'
@@ -27,34 +27,40 @@ const hops = ref(null)
 const selectedId = ref(null)
 const yearRange = ref(null)          // [y0, y1] or null (= all years)
 const filteredIds = shallowRef(null) // Set<id> or null (= all)
+const hopChoice = ref(1)             // 1 or 2 (toggle in header)
 
 let cf, dYear
 
+async function loadEgo(hop) {
+  const file = hop === 2 ? '/data/sailor_ego_2hop.json' : '/data/sailor_ego.json'
+  const res = await fetch(file)
+  if (!res.ok) throw new Error(`HTTP ${res.status} loading ${file}`)
+  const g = await res.json()
+
+  const map = new Map(g.nodes.map((n) => [n.id, n]))
+  for (const n of g.nodes) { n.influencedCount = 0; n.influencedByCount = 0 }
+  for (const e of g.influence) {
+    const influencer = map.get(e.target)
+    const influenced = map.get(e.source)
+    if (influencer) influencer.influencedCount += 1
+    if (influenced) influenced.influencedByCount += 1
+  }
+
+  allNodes.value = g.nodes
+  allLinks.value = g.influence
+  idx.value = map
+  center.value = g.center
+  hops.value = g.hops
+  if (selectedId.value == null || !map.has(selectedId.value)) selectedId.value = g.center
+
+  cf = crossfilter(g.nodes)
+  dYear = cf.dimension((d) => (d.year == null ? -9999 : d.year))
+  if (yearRange.value) applyYear(yearRange.value)  // re-apply existing brush to the new data
+}
+
 onMounted(async () => {
   try {
-    const res = await fetch('/data/sailor_ego.json')
-    if (!res.ok) throw new Error(`HTTP ${res.status} loading /data/sailor_ego.json`)
-    const g = await res.json()
-
-    const map = new Map(g.nodes.map((n) => [n.id, n]))
-    // influence edge: { source = influenced, target = influencer }
-    for (const n of g.nodes) { n.influencedCount = 0; n.influencedByCount = 0 }
-    for (const e of g.influence) {
-      const influencer = map.get(e.target)
-      const influenced = map.get(e.source)
-      if (influencer) influencer.influencedCount += 1
-      if (influenced) influenced.influencedByCount += 1
-    }
-
-    allNodes.value = g.nodes
-    allLinks.value = g.influence
-    idx.value = map
-    center.value = g.center
-    hops.value = g.hops
-    selectedId.value = g.center
-
-    cf = crossfilter(g.nodes)
-    dYear = cf.dimension((d) => (d.year == null ? -9999 : d.year))
+    await loadEgo(hopChoice.value)
 
     const gr = await fetch('/data/genre_spread.json') // Task 2 (non-fatal if absent)
     if (gr.ok) genre.value = await gr.json()
@@ -124,6 +130,12 @@ const influenced = computed(() => {
 function select(id) { selectedId.value = id }
 function resetToCenter() { selectedId.value = center.value }
 
+const switchingHop = ref(false)
+watch(hopChoice, async (h) => {
+  switchingHop.value = true
+  try { await loadEgo(h) } catch (e) { error.value = e.message } finally { switchingHop.value = false }
+})
+
 // cross-view linking: which artists exist in the influence network (Sailor's ego)
 const egoIds = computed(() => new Set(allNodes.value.map((n) => n.id)))
 function selectInNetwork(id) {
@@ -158,6 +170,27 @@ function toggleStar(id) {
   if (i === -1) starSelection.value = [...starSelection.value, id]
   else starSelection.value = starSelection.value.filter((x) => x !== id)
 }
+
+// Live tunable weights: start from the defaults baked into the dataset, let the
+// analyst adjust them, and re-rank the leaderboard accordingly.
+const weights = ref(null)
+watch(stars, (s) => { if (s && !weights.value) weights.value = { ...s.weights } }, { immediate: true })
+function resetWeights() { if (stars.value) weights.value = { ...stars.value.weights } }
+function rescore(row, w) {
+  return Object.entries(w).reduce((s, [k, v]) => s + v * (row.parts?.[k] || 0), 0)
+}
+const scoredPredicted = computed(() => {
+  if (!stars.value || !weights.value) return []
+  const w = weights.value
+  return [...stars.value.predicted]
+    .map((d) => ({ ...d, score: rescore(d, w) }))
+    .sort((a, b) => b.score - a.score)
+})
+const scoredBenchmark = computed(() => {
+  if (!stars.value || !weights.value) return null
+  const b = stars.value.benchmarks[0]
+  return b ? { ...b, score: rescore(b, weights.value) } : null
+})
 </script>
 
 <template>
@@ -211,6 +244,13 @@ function toggleStar(id) {
           years {{ yearRange[0] }}–{{ yearRange[1] }}
           <button class="ml-1 text-slate-400 hover:text-white" @click="applyYear(null)">✕</button>
         </span>
+        <div v-if="view === 'artist'" class="flex items-center gap-1 rounded bg-slate-800 p-1">
+          <span class="px-2 text-[11px] uppercase tracking-wide text-slate-500">Hops</span>
+          <button v-for="h in [1, 2]" :key="h"
+            class="rounded px-2 py-1 text-xs font-medium transition"
+            :class="hopChoice === h ? 'bg-cyan-600 text-white' : 'text-slate-300 hover:text-white'"
+            :disabled="switchingHop" @click="hopChoice = h">{{ h }}</button>
+        </div>
         <button
           v-if="view === 'artist'"
           class="rounded bg-cyan-600 px-3 py-1.5 font-medium text-white hover:bg-cyan-500"
@@ -331,13 +371,40 @@ function toggleStar(id) {
       </section>
 
       <aside class="min-h-0 overflow-auto rounded-xl border border-slate-700 bg-slate-900/60 p-3">
+        <!-- live score weights -->
+        <details v-if="stars && weights" class="mb-3 rounded-lg bg-slate-800/50">
+          <summary class="flex cursor-pointer items-center justify-between px-2 py-1.5 text-xs">
+            <span class="font-semibold uppercase tracking-wide text-slate-400">Tune the score</span>
+            <button class="rounded px-2 py-0.5 text-[10px] text-slate-400 hover:bg-slate-700 hover:text-cyan-300"
+                    @click.stop="resetWeights">reset</button>
+          </summary>
+          <div class="flex flex-col gap-1.5 px-2 pb-2">
+            <p class="text-[10px] text-slate-500">Drag a slider to see how the ranking changes.</p>
+            <label v-for="(_v, k) in weights" :key="k" class="flex items-center gap-2 text-[11px]">
+              <span class="inline-block h-2 w-2 shrink-0 rounded-sm"
+                    :style="{ background: ['recentNotable','notableGrowth','influenceReach','oceanusAffinity','youth'].includes(k)
+                              ? ['#22d3ee','#34d399','#a78bfa','#fbbf24','#fb7185'][['recentNotable','notableGrowth','influenceReach','oceanusAffinity','youth'].indexOf(k)] : '#64748b' }"></span>
+              <span class="w-28 shrink-0 text-slate-300">{{
+                k === 'recentNotable' ? 'Recent hits'
+                : k === 'notableGrowth' ? 'Momentum'
+                : k === 'influenceReach' ? 'Reach'
+                : k === 'oceanusAffinity' ? 'OF affinity'
+                : 'Youth'
+              }}</span>
+              <input type="range" min="0" max="1" step="0.05"
+                     v-model.number="weights[k]" class="h-1 flex-1 cursor-pointer accent-cyan-500" />
+              <span class="w-8 shrink-0 text-right tabular-nums text-slate-400">{{ weights[k].toFixed(2) }}</span>
+            </label>
+          </div>
+        </details>
+
         <h3 class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-400">Predicted next Oceanus Folk stars</h3>
         <p class="mb-2 text-[11px] text-slate-500">Ranked by Rising Star Score. Bar shows the score's makeup.</p>
         <StarLeaderboard
-          v-if="stars"
-          :predicted="stars.predicted"
-          :benchmark="stars.benchmarks[0]"
-          :weights="stars.weights"
+          v-if="stars && weights"
+          :predicted="scoredPredicted"
+          :benchmark="scoredBenchmark"
+          :weights="weights"
           :selected-ids="starSelection"
           :ego-ids="egoIds"
           :selected-id="selectedId"

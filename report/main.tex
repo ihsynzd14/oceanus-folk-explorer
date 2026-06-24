@@ -195,7 +195,8 @@ This view answers the first question. The center is the influence network descri
 year timeline, a ranking of top influencers, and a detail panel.}
 Older influencers sit to the left of Sailor Shift and the artists she influenced sit to the
 right. A timeline below the network shows how many artists were active each year and can be
-brushed to filter the other views by year. A ranking lists the artists who influenced the
+brushed to filter the other views by year. A toggle in the header switches between the
+one-hop and two-hop neighborhood so the analyst can broaden the view at the cost of density. A ranking lists the artists who influenced the
 most others. A detail panel shows the selected artist's genre, active years, number of
 works, and the lists of who influenced them and who they influenced. Clicking a node, a
 ranking row, or a name in the panel selects that artist and updates every part of the view.
@@ -226,10 +227,40 @@ youth. Each row's bar is split into these five parts in their fixed colors, so t
 can see why an artist ranks where it does. Clicking a candidate adds or removes its line
 from the trajectory chart.
 
+\subsection{Methodology: the Rising Star Score}
+The score combines five normalized parts. All parts are in the range $[0,1]$ and the final
+score is the weighted sum. The defaults in Table~\ref{tab:weights} are loaded from the data
+file, and sliders in the right panel let the analyst change any weight live; the leaderboard
+re-ranks at once. This makes the prediction transparent and lets the analyst test how
+sensitive the ranking is to each criterion.
+
+\begin{table}[ht]\centering
+\caption{Components and default weights of the Rising Star Score.}\label{tab:weights}
+\begin{tabular}{lll}
+\toprule
+Part & Meaning & Weight \\
+\midrule
+Recent chart hits & notable works in the last 5 years (popularity) & 0.30 \\
+Momentum & recent hits minus earlier hits (acceleration) & 0.20 \\
+Influence reach & distinct downstream artists, log-damped & 0.20 \\
+Oceanus Folk affinity & share of the artist's works in the genre & 0.20 \\
+Career youth & shorter career = more upside & 0.10 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Influence reach is passed through $\log(1+x)$ before normalization so that one outlier
+artist credited on hundreds of works does not flatten the scale for the others. To be a
+candidate at all an artist must have at least one Oceanus Folk work, a known debut year,
+and either a notable work or a reach of two or more.
+
 \subsection{Linking}
-The views are connected in two ways. Selecting an artist in the artist view updates the
+The views are connected in three ways. Selecting an artist in the artist view updates the
 network highlight, the ranking, and the detail panel together. Brushing a year range in the
-timeline filters the network and the ranking through crossfilter. The tab bar switches the
+timeline filters the network and the ranking through crossfilter. Selection is also shared
+across tabs: a rising-star candidate that exists in Sailor Shift's neighborhood has a small
+arrow button that opens the artist view focused on that artist, and the leaderboard
+highlights whichever artist is currently selected in the network. The tab bar switches the
 analytical task while keeping the same underlying data in memory.
 
 \section{Use Case}
@@ -263,8 +294,8 @@ The tool has limits. The influence edges are sparse and were collected by hand, 
 relationships are missing. Works with many creators can inflate influence counts, which the
 score reduces with a logarithm but does not fully remove. The data also includes future
 years, so predictions should be read as a guide rather than a fact. Useful next steps are a
-view for collaborations, controls to change the score weights, and links that carry a
-selected artist from one view to another.
+view for the collaboration network (the data is already prepared but not yet drawn) and a
+way to compare two artists side by side beyond the trajectory chart.
 
 \begin{thebibliography}{9}
 \bibitem{nodetrix} N.~Henry, J.-D.~Fekete, and M.~J.~McGuffin. NodeTrix: A Hybrid

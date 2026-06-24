@@ -134,13 +134,14 @@ collab_out = [
 
 out = {"center": SAILOR_ID, "hops": HOPS,
        "nodes": nodes_out, "influence": infl_out, "collab": collab_out}
-out_path = os.path.join(OUT_DIR, "sailor_ego.json")
+# Default 1-hop is sailor_ego.json (used by the app); larger hops get suffixed.
+fname = "sailor_ego.json" if HOPS == 1 else f"sailor_ego_{HOPS}hop.json"
+out_path = os.path.join(OUT_DIR, fname)
 with open(out_path, "w", encoding="utf-8") as f:
     json.dump(out, f, ensure_ascii=False)
-# also write the copy Vite serves at /data/sailor_ego.json
 served = os.path.join(ROOT, "public", "data")
 os.makedirs(served, exist_ok=True)
-with open(os.path.join(served, "sailor_ego.json"), "w", encoding="utf-8") as f:
+with open(os.path.join(served, fname), "w", encoding="utf-8") as f:
     json.dump(out, f, ensure_ascii=False)
 
 # ---- stats ----

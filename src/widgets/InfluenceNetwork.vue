@@ -8,7 +8,7 @@
  */
 import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 import * as d3 from 'd3'
-import { genreColor, edgeColor, dominantType, displayName } from '../lib/colors.js'
+import { genreColor, edgeColor, INFLUENCE_TYPES, dominantType, displayName } from '../lib/colors.js'
 
 const props = defineProps({
   nodes: { type: Array, default: () => [] },
@@ -89,6 +89,20 @@ function draw() {
   }
   const dim = (id) => sel != null && !neighborIds.has(id)
 
+  // arrowhead markers, one per influence type so the arrow matches its line color
+  const defs = svg.append('defs')
+  for (const t of INFLUENCE_TYPES) {
+    defs.append('marker')
+      .attr('id', `arrow-${t}`)
+      .attr('viewBox', '0 -4 8 8')
+      .attr('refX', 7).attr('refY', 0)
+      .attr('markerWidth', 7).attr('markerHeight', 7)
+      .attr('orient', 'auto')
+      .append('path')
+      .attr('d', 'M0,-3.5 L7,0 L0,3.5 z')
+      .attr('fill', edgeColor(t))
+  }
+
   // X axis (years)
   const axis = svg.append('g')
     .attr('transform', `translate(0,${H - M.bottom + 2})`)
@@ -108,7 +122,7 @@ function draw() {
     .attr('fill', '#64748b').attr('font-size', 10)
     .text('later · influenced →')
 
-  // links (curved, influencer → influenced)
+  // links (curved, influencer → influenced; arrow at the influenced end)
   svg.append('g').attr('class', 'links')
     .selectAll('path')
     .data(drawnLinks)
@@ -117,10 +131,17 @@ function draw() {
     .attr('d', (e) => {
       const a = e.target, b = e.source // target = influencer (older), source = influenced (newer)
       const mx = (a.x + b.x) / 2
-      return `M${a.x},${a.y} Q${mx},${(a.y + b.y) / 2 - 18} ${b.x},${b.y}`
+      const my = (a.y + b.y) / 2 - 18
+      // shorten endpoint to the radius of the influenced node so the arrow tip sits at its edge
+      const dx = b.x - mx, dy = b.y - my
+      const L = Math.hypot(dx, dy) || 1
+      const r = radius(b) + 3
+      const ex = b.x - (dx / L) * r, ey = b.y - (dy / L) * r
+      return `M${a.x},${a.y} Q${mx},${my} ${ex},${ey}`
     })
     .attr('stroke', (e) => edgeColor(dominantType(e.types)))
     .attr('stroke-width', (e) => Math.min(1 + (e.weight || 1) * 0.5, 3))
+    .attr('marker-end', (e) => `url(#arrow-${dominantType(e.types)})`)
     .attr('opacity', (e) => {
       const s = e.source.id ?? e.source, t = e.target.id ?? e.target
       if (sel == null) return 0.22
@@ -153,6 +174,19 @@ function draw() {
       .attr('font-size', 11).attr('font-weight', 600)
       .text('Sailor Shift')
   }
+
+  // genre legend (top genres present in the visible network), top-left under the hint
+  const counts = d3.rollup(props.nodes, (v) => v.length, (d) => d.top_genre || 'unknown')
+  const topGenres = [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 6).map((d) => d[0])
+  const lg = svg.append('g').attr('transform', `translate(${M.left},${M.top + 14})`)
+  lg.append('text').attr('y', -2).attr('fill', '#64748b').attr('font-size', 9)
+    .attr('font-weight', 600).text('GENRES')
+  topGenres.forEach((gName, i) => {
+    const row = lg.append('g').attr('transform', `translate(0,${i * 13 + 4})`)
+    row.append('circle').attr('r', 4).attr('cx', 4).attr('cy', 4).attr('fill', genreColor(gName))
+    row.append('text').attr('x', 13).attr('y', 7)
+      .attr('fill', '#cbd5e1').attr('font-size', 10).text(gName)
+  })
 }
 
 function showTip(event, d) {

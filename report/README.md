@@ -9,10 +9,6 @@
 
 ## Screenshots
 
-Each view has a figure slot that compiles as a gray placeholder until you add an image.
-To insert a real screenshot:
-
-1. Save the image in `figures/`, e.g. `figures/artist.png`, `figures/genre.png`, `figures/stars.png`.
-2. In `main.tex`, find the matching `\viewfig{...}` line and replace the `\fbox{...}` line inside
-   the `\viewfig` macro definition with `\includegraphics`, or simply swap each `\viewfig` call for a
-   normal figure that uses `\includegraphics[width=0.9\linewidth]{artist.png}`.
+The three view screenshots are in `figures/` (`artist.png`, `genre.png`, `stars.png`) and are
+already shown in the report. To refresh one, open the app, capture the tab, and overwrite the
+matching file — no edit to `main.tex` is needed.

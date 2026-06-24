@@ -10,12 +10,11 @@
 
 \graphicspath{{figures/}}
 
-% Figure slot that compiles even before a screenshot is added.
-% To use a real image, replace the \fbox{...} line with:
-%   \includegraphics[width=#3\linewidth]{#1}
+% Figure for a view. #1 description (unused), #2 image file stem in figures/,
+% #3 width fraction, #4 caption.
 \newcommand{\viewfig}[4]{%
   \begin{figure}[ht]\centering
-  \fbox{\parbox[c][4cm][c]{#3\linewidth}{\centering\color{gray}\small screenshot: #1}}
+  \includegraphics[width=#3\linewidth]{#2}
   \caption{#4}\label{fig:#2}
   \end{figure}%
 }

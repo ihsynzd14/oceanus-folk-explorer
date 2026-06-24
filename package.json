@@ -1,0 +1,24 @@
+{
+  "name": "oceanus-folk-explorer",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "VAST 2025 MC1 — interactive tool to explore the rise of Oceanus Folk (Sailor Shift influence graph).",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "data": "python scripts/build_subgraph.py"
+  },
+  "dependencies": {
+    "crossfilter2": "^1.5.4",
+    "d3": "^7.9.0",
+    "vue": "^3.5.34"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.0",
+    "@vitejs/plugin-vue": "^6.0.6",
+    "tailwindcss": "^4.3.0",
+    "vite": "^8.0.12"
+  }
+}

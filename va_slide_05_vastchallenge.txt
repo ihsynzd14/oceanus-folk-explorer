@@ -1,0 +1,225 @@
+
+===== PAGE 1 =====
+5 • PROJECT
+ASSIGNMENT
+VAST 2025: Mini-Challenges Overview
+Oceanus Island: A Microcosm of
+Music, Economy, and Intrigue
+TEACHER
+Salvo Rinzivillo
+University of Pisa
+Department of Computer Science
+Course: Visual Analytics (602AA)
+Academic Year: 2025/2026
+
+===== PAGE 2 =====
+Mini-Challenge 1: The Rise of Oceanus Folk
+Background & Context
+The Star: Sailor Shift, a global superstar who popularized "Oceanus Folk."
+The History: Started in the all-female band Ivy Echoes, broke out solo in 2028, and consistently
+champions new artists and collaborations.
+The Analyst: Silas Reed, a local journalist writing Oceanus Folk: Then-and-Now.
+The Data: A large knowledge graph of musical artists, producers, albums, songs, and influences.
+Visual Analytics va602aa 2026
+1 / 18
+
+===== PAGE 3 =====
+MINI CHALLENGES
+OVERVIEW
+
+===== PAGE 4 =====
+MC1: Analytical Tasks (1/2)
+Profiling Sailor Shift & Spreading Influence
+Career Profile: Visualize who influenced Sailor over time, her direct/indirect collaborations, and
+her impact on the Oceanus Folk community.
+Genre Spread: Illustrate how Oceanus Folk spread globally.
+Was the rise gradual or intermittent?
+Which top artists and external genres were most affected?
+How has Oceanus Folk evolved by drawing contemporary inspiration from other genres?
+Visual Analytics va602aa 2026
+2 / 18
+
+===== PAGE 5 =====
+MC1: Analytical Tasks (2/2)
+Predicting the Next Stars
+Profile a Rising Star: Use the visual insights to define what makes a "rising star" in this
+ecosystem.
+Compare Careers: Visualize and contrast the career trajectories, popularity, and influence of three
+specific artists.
+Predict: Based on these characterizations, predict the next three Oceanus Folk stars over the
+coming five years.
+Visual Analytics va602aa 2026
+3 / 18
+
+===== PAGE 6 =====
+Mini-Challenge 2: The COOTEFOO Scandals
+Background & Context
+The Conflict: Oceanus's transition from a fishing-based economy to tourism.
+The Board: COOTEFOO (Commission on Overseeing the Economic Future of Oceanus) advises
+the government but is mired in scandal.
+The Accusers: - FILAH: Pro-fishing, accuses the board of pro-tourism bias.
+TROUT: Pro-tourism, accuses the board of appeasing the fishing industry.
+The Analyst: E.D. Moray, a journalist for the Haacklee Herald, investigating government
+accountability.
+Visual Analytics va602aa 2026
+4 / 18
+
+===== PAGE 7 =====
+MC2: Analytical Tasks (1/2)
+Investigating Bias in Fragmented Data
+Analyze Group Claims: Use visual analytics to determine if TROUT and FILAH’s accusations are
+supported by their own restricted datasets.
+The Big Picture: Combine both datasets with additional acquired records into a single knowledge
+graph.
+Committee Assessment: Visualize how COOTEFOO members spend their time in the complete
+dataset to see if the committee as a whole is biased.
+Visual Analytics va602aa 2026
+5 / 18
+
+===== PAGE 8 =====
+MC2: Analytical Tasks (2/2)
+Contextualizing Incomplete Datasets
+Compare & Contrast: How do conclusions drawn from the fragmented TROUT/FILAH datasets
+change when viewed within the complete dataset?
+Individual Behavior: - Highlight a specific person's behavior across different datasets.
+Analyze a COOTEFOO member accused by TROUT—what missing evidence changes the
+judgment?
+Identify whose behaviors are most impacted by sampling bias in the FILAH dataset.
+Visual Analytics va602aa 2026
+6 / 18
+
+===== PAGE 9 =====
+Mini-Challenge 3: Nemo Reef Closure
+Background & Context
+The Shift: Crackdowns on illegal fishing led to investments in regulated ocean tourism, causing
+local tensions.
+The Incident: Temporary, secretive closure of Nemo Reef coinciding with Sailor Shift filming a
+music video.
+The Players: High-level officials, Sailor's team, local influential families, and The Green Guardians
+(conservationists).
+The Analyst: Clepper Jessen, former analyst turned journalist, using intercepted radio
+communications mapped into a knowledge graph.
+Visual Analytics va602aa 2026
+7 / 18
+
+===== PAGE 10 =====
+MC3: Analytical Tasks (1/2)
+Temporal Patterns & Group Dynamics
+Daily Communications: Develop graph-based visualizations to identify daily temporal patterns in
+radio traffic over the two weeks.
+How do patterns shift? Who has influence over specific entities?
+Group Interactions: Explore relationships between vessels and people.
+Identify closely associated groups (e.g., Environmentalists, Sailor Shift's crew, fishing/leisure
+vessels).
+Determine predominant topic areas for each group.
+Visual Analytics va602aa 2026
+8 / 18
+
+===== PAGE 11 =====
+MC3: Analytical Tasks (2/2)
+Pseudonyms & Illicit Activity
+Entity Resolution: Identify users of pseudonyms (e.g., "Boss", "The Lookout") and handle cases
+where multiple entities use the same alias.
+How do these pseudonyms change the understanding of recorded activities?
+Investigating Nadia Conti: Suspected of continuing illicit activity post-fishing crackdown.
+Visually summarize Nadia's actions to prove or disprove Clepper's suspicions.
+Visual Analytics va602aa 2026
+9 / 18
+
+===== PAGE 12 =====
+DESIGN CHALLENGE
+
+===== PAGE 13 =====
+What is a Knowledge Graph?
+Structured Representation: Organizes information into entities (concepts) and relationships.
+Graph Structure:
+Nodes: Represent the entities.
+Edges: Represent the relationships between them.
+Beyond Traditional Graphs: Nodes and edges have many associated properties, which vary
+widely across the entire graph.
+Visual Analytics va602aa 2026
+10 / 18
+
+===== PAGE 14 =====
+The Visualization Challenge
+Traditional visual representations (like basic node-link diagrams or adjacency matrices) struggle with
+real-world knowledge graphs due to:
+Massive Scale: Often containing thousands of nodes and edges.
+Data Imperfections: Information is rarely a perfect model of the world; it contains conflicting,
+uncertain, or missing data.
+Cognitive Overload: Node-link diagrams of large-scale knowledge graphs quickly become
+"hairballs" that are incredibly difficult to interpret.
+Visual Analytics va602aa 2026
+11 / 18
+
+===== PAGE 15 =====
+The Mission
+Your Task: Design a visual analytics interface that addresses analytical tasks for non-expert users.
+Target User: A domain-expert analyst trying to explore a story (not necessarily a graph/network
+expert).
+The Goal: Balance ease of use with enough information density to support complex tasks.
+Scope: Can focus on the whole graph or a focused subset contextualized by the full graph. (Note:
+Do not focus on constructing, tuning, or refining the graph).
+Visual Analytics va602aa 2026
+12 / 18
+
+===== PAGE 16 =====
+Key Analytical Tasks
+Your design must help the user accomplish one or more of the following:
+1. Discover: Find new information or previously unseen relationships.
+2. Audit: Find anomalies and inconsistencies within the data.
+3. Predict/Infer: Infer missing data based on the surrounding context.
+Visual Analytics va602aa 2026
+13 / 18
+
+===== PAGE 17 =====
+Challenge Guidelines
+Format: A visual analytics design is the initial goal (conceptual drawing or mockup).
+Data: Data analysis is not required, but you can use any dataset to inform your design. No specific
+data is being released for this challenge.
+Focus: The core requirement is demonstrating how your design facilitates analysis and
+understanding of the data.
+Visual Analytics va602aa 2026
+14 / 18
+
+===== PAGE 18 =====
+Course Integration: This Is Your Final Project
+Turning Global Competition into Classroom Collaboration
+Collaborative Open Work: We will use our classroom time as an open studio to brainstorm,
+design, review, and refine your ideas together.
+Your Final Exam: If you participate in this challenge, your final design submission will serve as the
+basis for your final exam.
+No Extra Projects: You do not need to create a separate, unrelated project for this course.
+The Evaluation: Your final grade will be based on a formal discussion and presentation of your
+VAST Design Challenge deliverables.
+Visual Analytics va602aa 2026
+15 / 18
+
+===== PAGE 19 =====
+How We Will Work Together
+Classroom Milestones & Expectations
+Open Feedback: Expect regular peer reviews and open discussions. We are not partecipating to a
+global competition, but collaborating locally.
+Iterative Design: We will break the challenge deliverables into manageable modules.
+The Finish Line: By the end of the course, we will have an integrated tool for managing and
+analyzing knowledge graphs, useful for the students of next year and beyond.
+Visual Analytics va602aa 2026
+16 / 18
+
+===== PAGE 20 =====
+Toolbox & Resources
+Graph Visualization Libraries: D3.js, Vega-lite
+Technical Resources: Python libraries (NetworkX, pandas, numpy, scikit-learn)
+Design Inspiration: Existing knowledge graph visualizations, VAST Challenge archives, and real-
+world examples of complex data visualization.
+Collaboration Tools: GitHub for version control
+Single repository for the classroom, separate forks for each student to work on their designs.
+Regular pull requests for peer review and feedback.
+Visual Analytics va602aa 2026
+17 / 18
+
+===== PAGE 21 =====
+Let's Brainstorm!
+Questions & Ideation
+Visual Analytics va602aa 2026
+18 / 18

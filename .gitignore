@@ -1,0 +1,14 @@
+node_modules
+dist
+dist-ssr
+*.local
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+
+# Keep raw VAST data out of git (large, redistributable from vast-challenge/2025-data)
+data/raw/
+
+# Reference clones of the professor's example repos
+first-d3-2026-main/
+VastChallenge2008-main/

@@ -1,0 +1,422 @@
+
+===== PAGE 1 =====
+Visual Analytics
+va602aa
+Data Visualization and 
+Visual Analytics
+S. Rinzivillo – rinzivillo@isti.cnr.it
+
+===== PAGE 2 =====
+Visual Analytics
+va602aa
+Cartography in D3
+
+===== PAGE 3 =====
+Visual Analytics
+va602aa
+Geographical Data- GeoJSON
+• Javascript based description of 
+geographical objects
+• Three main properties:
+• type (e.g. “FeatureCollection”)
+• crs (Coordinate Reference System)
+• features (list of objects located in 
+the space)
+• Each feature consists of:
+• type (e.g.“Feature”)
+• properties (key-value dictionary of 
+attributes)
+• geometry (geometry that
+represents the object)
+
+===== PAGE 4 =====
+Visual Analytics
+va602aa
+From Geo-data to visualization
+• Mapping of geographical coordinates (longitude and latitude) to 
+position on the screen
+• Definition of projection function based on scale, translation and rotation
+• module: d3.geo.projection
+• Creation of mapping for each element (point) of the geometry
+• module: d3.geo.path
+
+===== PAGE 5 =====
+Visual Analytics
+va602aa
+Example: Map of paintings
+https://observablehq.com/@d3/bubble-map
+
+===== PAGE 6 =====
+Visual Analytics
+va602aa
+Geometries and Standards
+
+===== PAGE 7 =====
+Visual Analytics
+va602aa
+Open GIS Consortium – OGC
+• Consortium to define protocols to transmitt territorial and geographic 
+information
+
+===== PAGE 8 =====
+Visual Analytics
+va602aa
+SFS – Simple Feature Specification
+• Definition of an abstract data type:
+• Geometry
+
+===== PAGE 9 =====
+Visual Analytics
+va602aa
+Point
+
+===== PAGE 10 =====
+Visual Analytics
+va602aa
+Linestring
+
+===== PAGE 11 =====
+Visual Analytics
+va602aa
+Polygon
+
+===== PAGE 12 =====
+Visual Analytics
+va602aa
+Multipoint, Multilinestring
+
+===== PAGE 13 =====
+Visual Analytics
+va602aa
+Multipolygon
+
+===== PAGE 14 =====
+Visual Analytics
+va602aa
+WKT – Well Known Text Format
+• POINT(123.45 543.21)
+• LINESTRING(100.0 200.0, 201.5 102.5, 1234.56 123.89)
+• POLYGON((101.23 171.82, 201.32 101.5, 215.7 201.953, 101.23 171.82))
+• POLYGON((10 10, 20 10, 20 20, 10 20, 10 10),(13 13, 17 13, 17 17, 13 17, 13 
+13))
+• MULTILINESTRING((1 2, 3 4), (5 6, 7 8, 9 10), (11 12, 13 14))
+• MULTIPOLYGON(((0 0,10 20,30 40,0 0),(1 1,2 2,3 3,1 1)),((100 100,110 
+110,120 120,100 100)))
+• GEOMETRYCOLLECTION(POINT(1 1), LINESTRING(4 5, 6 7, 8 9), POINT(30 
+30))
+
+===== PAGE 15 =====
+Visual Analytics
+va602aa
+WKB – Well Known Binary Format
+• Compact representation
+• Useful to store geometries on DBMS
+
+===== PAGE 16 =====
+Visual Analytics
+va602aa
+GeoJSON format
+
+===== PAGE 17 =====
+Visual Analytics
+va602aa
+TopoJSON
+• Extends GeoJSON and encodes topology
+• Shared lines are represented as arcs
+• Reduce redundancy and decrease file size
+• Topology can be exploited in specific applications
+
+===== PAGE 18 =====
+Visual Analytics
+va602aa
+Example, without topology
+
+===== PAGE 19 =====
+Visual Analytics
+va602aa
+Line Simplification
+https://bost.ocks.org/mike/simplify/
+
+===== PAGE 20 =====
+Visual Analytics
+va602aa
+Color Mapping
+http://bl.ocks.org/jasondavies/4188334
+
+===== PAGE 21 =====
+Visual Analytics
+va602aa
+Cartograms
+http://prag.ma/code/d3-cartogram/
+
+===== PAGE 22 =====
+Visual Analytics
+va602aa
+Dot distribution
+http://projects.nytimes.com/census/2010/map
+
+===== PAGE 23 =====
+Visual Analytics
+va602aa
+Lines distribution
+https://www.flickr.com/photos/walkingsf/albums/72157624209158632
+
+===== PAGE 24 =====
+Visual Analytics
+va602aa
+Graduated Symbol Map
+http://elections.nytimes.com/2008/results/president/map.html
+
+===== PAGE 25 =====
+Visual Analytics
+va602aa
+Tile Map Server
+
+===== PAGE 26 =====
+Visual Analytics
+va602aa
+Tile Map Server
+• An efficient solution to publish maps on the web
+• Complexity in space (rather than in time)
+• Used by many providers:
+• Google Maps, Bing, Yahoo Maps, OpenStreetMaps
+• Maps is generated once for all level of zoom and then sliced into tiles
+• A map for a finite set of zoom levels
+
+===== PAGE 27 =====
+Visual Analytics
+va602aa
+Tile Map Server (2)
+• To simplify coordinate mapping: cylindrical projection
+• Two main reference systems:
+• Sphere Mercator (53004)
+• World Mercator (54004)
+• Mercator Cyndric projection
+• Meridians are parallels
+• Conformal (preserves shapes)
+• Preserves directions
+
+===== PAGE 28 =====
+Visual Analytics
+va602aa
+Tile Map Server (3): scale
+• Hierarchy division of plane
+• Every tile (any zoom) has a fixed 
+dimension: 256x256
+• Each zoom level increases 
+(doubles) the number of tiles
+• At level 1: only 4 tiles
+
+===== PAGE 29 =====
+Visual Analytics
+va602aa
+Tile Map Server (4): scale
+• At each zoom level, the number 
+of tiles increases
+• Every tile at level n generates 4 
+tiles at level n+1
+• At level n tiles cover 256 * 2^n 
+pixel
+• For example, at level 3 map has 
+a side 256 * 2^3 = 2048 pixel
+
+===== PAGE 30 =====
+Visual Analytics
+va602aa
+Tile Map Server (5): coordinates
+• Given coordinate (lat,lon) and 
+zoom level n, how to determine 
+position on the image?
+• Which tile correspond to 
+coordinate?
+pixelX = ((longitude + 180) / 360) * 256 * 2^level
+pixelY = (1 – log(tan(Latitude)+ sinh(Latitude)) / pi))/2 * 256 * 2 ^ level
+
+===== PAGE 31 =====
+Visual Analytics
+va602aa
+Tile Map Server (6): tile number
+• Given pixelX e pixelY
+• Which tile contains that pixel?
+• URL to tile:
+• /zoom/tx/ty
+• quadkey
+tileX = floor(pixelX / 256)
+tileY = floor(pixelY / 256)
+http://otile2.mqcdn.com/tiles/1.0.0/osm/1/0/0.png
+
+===== PAGE 32 =====
+Visual Analytics
+va602aa
+Tile Map Server (7): quadkey
+• Used by Bing
+• Length of the key 
+corresponds to the 
+zoom level
+tileX = 3 = 011
+tileY = 5 = 101
+quadkey = 100111 = 2134 = “213”
+
+===== PAGE 33 =====
+Visual Analytics
+va602aa
+Tile Map Server (8): zoom in
+• Given a tile a zoom level n
+• Successive tile at level n+1 are:
+• 2x,2y
+• 2x+1,2y
+• 2x,2y+1
+• 2x+1,2y+1
+/3/4/2.png
+
+===== PAGE 34 =====
+Visual Analytics
+va602aa
+
+===== PAGE 35 =====
+Visual Analytics
+va602aa
+Tile Viewer Example
+https://bl.ocks.org/mbostock/f9f91fd9148bdc5aa6db
+
+===== PAGE 36 =====
+Visual Analytics
+va602aa
+Tile Services
+
+===== PAGE 37 =====
+Visual Analytics
+va602aa
+Leaflet.js
+
+===== PAGE 38 =====
+Visual Analytics
+va602aa
+Leaflet.js - APIs
+
+===== PAGE 39 =====
+Visual Analytics
+va602aa
+Leaflet.js
+• A valid tool to provide tile-based maps
+• Open Source
+• Open Data (http://tools.geofabrik.de/mc/)
+• Free
+• Easy to use API
+• Lightweight lib (only 64k)
+• Support mobile applications
+• Alternative to Google Maps (http://flink.com.au/tips-tricks/27-
+reasons-not-to-use-google-maps)
+
+===== PAGE 40 =====
+Visual Analytics
+va602aa
+Free Tiles Providers
+• OpenStreetMap
+• Some issues for high traffic services
+• MapQuest Open License
+• Free, by attribution
+• Special configuration for heavy usage
+• MapBox
+• Free tier
+• Customizable design (see next slide)
+• Same family as Leaflet.js
+
+===== PAGE 41 =====
+Visual Analytics
+va602aa
+Commercial Tile Providers
+• CloudMade
+• Mirror of OSM data till few years ago
+• Leaflet was born here
+• $30 per 1M tiles
+• MapBox
+• Free for low traffic
+• $30 for 900k tiles
+
+===== PAGE 42 =====
+Visual Analytics
+va602aa
+Easy to install/use
+• HTML (Setting the stage)
+• Link CSS (via CDN)
+•
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+• Link JS (via CDN)
+•
+<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+• Create a div to contain the map
+•
+<div id="map"></div>
+• Set height for the container
+•
+#map { height: 180px; }
+
+===== PAGE 43 =====
+Visual Analytics
+va602aa
+Easy to install/use
+• Create an object to handle the map
+•
+var map = L.map('map').setView([51.505, -0.09], 13);
+
+===== PAGE 44 =====
+Visual Analytics
+va602aa
+Tile map providers
+http://leaflet-extras.github.io/leaflet-providers/preview/
+http://maps.stamen.com
+
+===== PAGE 45 =====
+Visual Analytics
+va602aa
+Markers and geometries
+• var marker = L.marker([51.5, -0.09]).addTo(map);
+• var circle = L.circle([51.508, -0.11], 500, {
+color: 'red’,
+fillColor: '#f03’,
+fillOpacity: 0.5
+}).addTo(map);
+• var polygon = L.polygon([
+[51.509, -0.08],
+[51.503, -0.06],
+[51.51, -0.047]
+]).addTo(map);
+
+===== PAGE 46 =====
+Visual Analytics
+va602aa
+Interactions
+• marker.bindPopup("<b>Hello world!</b><br>I am a 
+popup.").openPopup();
+• circle.bindPopup("I am a circle.");
+• polygon.bindPopup("I am a polygon.");
+
+===== PAGE 47 =====
+Visual Analytics
+va602aa
+Event handling
+• function onMapClick(e) {
+alert("You clicked the map at " + e.latlng);
+}
+• map.on('click', onMapClick);
+• var popup = L.popup();
+• function onMapClick(e) {
+popup
+.setLatLng(e.latlng)
+.setContent("You clicked the map at " + e.latlng.toString())
+.openOn(map);
+}
+• map.on('click', onMapClick);
+
+===== PAGE 48 =====
+Visual Analytics
+va602aa
+Other Examples
+• Mobile app
+• http://leafletjs.com/examples/mobile.html
+• GeoJSON
+• http://leafletjs.com/examples/geojson.html
+• http://geojson.io/
+• Tutorials
+• http://leafletjs.com/examples.html

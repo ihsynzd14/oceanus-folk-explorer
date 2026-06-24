@@ -7,12 +7,16 @@ import Ranking from './widgets/Ranking.vue'
 import DetailPanel from './widgets/DetailPanel.vue'
 import GenreSpread from './widgets/GenreSpread.vue'
 import BarList from './widgets/BarList.vue'
+import RisingStars from './widgets/RisingStars.vue'
+import StarLeaderboard from './widgets/StarLeaderboard.vue'
 import { genreColor } from './lib/colors.js'
 
 const loading = ref(true)
 const error = ref(null)
-const view = ref('artist') // 'artist' | 'genre'
+const view = ref('artist') // 'artist' | 'genre' | 'stars'
 const genre = shallowRef(null)
+const stars = shallowRef(null)
+const starSelection = ref([])
 
 const allNodes = shallowRef([])
 const allLinks = shallowRef([])
@@ -54,6 +58,17 @@ onMounted(async () => {
 
     const gr = await fetch('/data/genre_spread.json') // Task 2 (non-fatal if absent)
     if (gr.ok) genre.value = await gr.json()
+
+    const rs = await fetch('/data/rising_stars.json') // Task 3 (non-fatal if absent)
+    if (rs.ok) {
+      const data = await rs.json()
+      stars.value = data
+      const bench = data.benchmarks?.[0]?.id
+      starSelection.value = [
+        ...data.predicted.slice(0, 3).map((d) => d.id),
+        ...(bench != null ? [bench] : []),
+      ]
+    }
   } catch (e) {
     error.value = e.message
   } finally {
@@ -123,6 +138,19 @@ const influencedGenres = computed(() =>
 const affectedArtists = computed(() =>
   (genre.value?.topAffectedArtists || []).map((d) => ({ label: d.name, count: d.works_influenced }))
 )
+
+// Task 3 helpers
+const starNames = computed(() => {
+  const m = {}
+  for (const d of [...(stars.value?.predicted || []), ...(stars.value?.benchmarks || [])]) m[d.id] = d.name
+  return m
+})
+const benchmarkId = computed(() => stars.value?.benchmarks?.[0]?.id ?? null)
+function toggleStar(id) {
+  const i = starSelection.value.indexOf(id)
+  if (i === -1) starSelection.value = [...starSelection.value, id]
+  else starSelection.value = starSelection.value.filter((x) => x !== id)
+}
 </script>
 
 <template>
@@ -153,14 +181,24 @@ const affectedArtists = computed(() =>
         >
           Genre spread
         </button>
+        <button
+          class="rounded-md px-3 py-1.5 transition"
+          :class="view === 'stars' ? 'bg-cyan-600 text-white' : 'text-slate-300 hover:text-white'"
+          @click="view = 'stars'"
+        >
+          Rising stars
+        </button>
       </nav>
 
       <div class="flex items-center gap-4 text-xs text-slate-400">
         <span v-if="!loading && !error && view === 'artist'">
           {{ allNodes.length }} artists · {{ allLinks.length }} influence links · {{ hops }}-hop ego-network
         </span>
-        <span v-else-if="!loading && !error && genre">
+        <span v-else-if="!loading && !error && view === 'genre' && genre">
           {{ genre.influencedGenres.length }} genres reached · {{ genre.yearRange[0] }}–{{ genre.yearRange[1] }}
+        </span>
+        <span v-else-if="!loading && !error && view === 'stars' && stars">
+          {{ stars.predicted.length }} candidates scored · predicted to {{ stars.refYear }}
         </span>
         <span v-if="view === 'artist' && yearRange" class="rounded bg-slate-800 px-2 py-1 text-cyan-300">
           years {{ yearRange[0] }}–{{ yearRange[1] }}
@@ -227,7 +265,7 @@ const affectedArtists = computed(() =>
     </div>
 
     <!-- Genre-spread view (Task 2) -->
-    <div v-else class="grid h-full grid-cols-1 gap-3 lg:grid-cols-[minmax(0,1fr)_300px]">
+    <div v-else-if="view === 'genre'" class="grid h-full grid-cols-1 gap-3 lg:grid-cols-[minmax(0,1fr)_300px]">
       <section class="flex min-h-0 flex-col rounded-xl border border-slate-700 bg-slate-900/60 p-3">
         <h2 class="text-sm font-semibold text-slate-200">How Oceanus Folk spread through the music world</h2>
         <p class="mb-2 text-xs text-slate-500">
@@ -260,6 +298,42 @@ const affectedArtists = computed(() =>
           <h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">Top affected artists</h3>
           <BarList :items="affectedArtists" unit=" works" :limit="10" />
         </div>
+      </aside>
+    </div>
+
+    <!-- Rising-stars view (Task 3) -->
+    <div v-else class="grid h-full grid-cols-1 gap-3 lg:grid-cols-[minmax(0,1fr)_340px]">
+      <section class="flex min-h-0 flex-col rounded-xl border border-slate-700 bg-slate-900/60 p-3">
+        <h2 class="text-sm font-semibold text-slate-200">Comparing career trajectories</h2>
+        <p class="mb-2 text-xs text-slate-500">
+          Cumulative chart hits over time. Sailor Shift (dashed) is the benchmark; steep recent
+          slopes mark a rising star. Click candidates on the right to compare.
+        </p>
+        <div class="min-h-0 flex-1">
+          <RisingStars
+            v-if="stars"
+            :traj="stars.traj"
+            :selected-ids="starSelection"
+            :names="starNames"
+            :benchmark-id="benchmarkId"
+          />
+          <p v-else class="text-sm text-slate-500">
+            Rising-star data not found. Run <code class="rounded bg-slate-800 px-1">python scripts/build_rising_stars.py</code>.
+          </p>
+        </div>
+      </section>
+
+      <aside class="min-h-0 overflow-auto rounded-xl border border-slate-700 bg-slate-900/60 p-3">
+        <h3 class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-400">Predicted next Oceanus Folk stars</h3>
+        <p class="mb-2 text-[11px] text-slate-500">Ranked by Rising Star Score. Bar shows the score's makeup.</p>
+        <StarLeaderboard
+          v-if="stars"
+          :predicted="stars.predicted"
+          :benchmark="stars.benchmarks[0]"
+          :weights="stars.weights"
+          :selected-ids="starSelection"
+          @toggle="toggleStar"
+        />
       </aside>
     </div>
     </main>

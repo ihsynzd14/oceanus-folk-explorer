@@ -35,3 +35,19 @@ export function dominantType(types) {
 export function displayName(n) {
   return n.stage_name || n.name || `#${n.id}`
 }
+
+// Rising Star Score components (Task 3) — order = stacking order in the breakdown bar.
+export const SCORE_PARTS = ['recentNotable', 'notableGrowth', 'influenceReach', 'oceanusAffinity', 'youth']
+export const SCORE_LABELS = {
+  recentNotable: 'Recent chart hits',
+  notableGrowth: 'Momentum (acceleration)',
+  influenceReach: 'Influence reach',
+  oceanusAffinity: 'Oceanus Folk affinity',
+  youth: 'Career youth',
+}
+export const scoreColor = d3.scaleOrdinal()
+  .domain(SCORE_PARTS)
+  .range(['#22d3ee', '#34d399', '#a78bfa', '#fbbf24', '#fb7185'])
+
+// Stable per-artist line color for the trajectory comparison.
+export const artistColor = d3.scaleOrdinal(d3.schemeTableau10)

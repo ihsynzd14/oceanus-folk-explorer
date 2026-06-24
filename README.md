@@ -6,13 +6,25 @@ linked, interactive widgets centered on an original D3 "influence-over-time" net
 
 ## What it shows
 
+Three views, switched by tabs in the header, one per MC1 task.
+
+**Artist · Sailor Shift** (Task 1) — who shaped Sailor Shift and whom she shaped:
 - **Influence-over-time network** (the original D3 centerpiece): artists placed on a time axis
   (X = year they became active); influence edges flow left (influencers) → right (influenced),
   anchored on Sailor Shift's ego-network. Avoids the force-directed "hairball".
-- **Timeline**: artists active per year, with a **brush that filters every other view**.
-- **Top influencers**: ranking by how many other artists each one influenced.
-- **Detail panel**: the selected artist's profile, who influenced them, and whom they influenced.
-- **Linked views**: selecting in any widget updates the others (crossfilter on the year dimension).
+- **Timeline**: artists active per year, with a **brush that filters the network + ranking**.
+- **Top influencers** ranking and a **detail panel** (profile, who influenced them, whom they influenced).
+- Linked: selecting in any of these widgets updates the others (crossfilter on the year dimension).
+
+**Genre spread** (Task 2) — how Oceanus Folk spread through the music world:
+- **Stacked area** of works influenced by Oceanus Folk each year, banded by genre, with a dashed
+  line of Oceanus Folk's own releases. The bursts show an intermittent (not gradual) rise.
+- Rankings of the genres it drew from, the genres it influenced, and the most affected artists.
+
+**Rising stars** (Task 3) — who is likely to break out next:
+- **Trajectory comparison** of cumulative chart hits over time, with Sailor Shift as a benchmark.
+- **Leaderboard** ranked by a transparent Rising Star Score; each bar is split into the score's
+  five components. Click a candidate to add it to the comparison.
 
 ## Prerequisites
 
@@ -23,12 +35,14 @@ linked, interactive widgets centered on an original D3 "influence-over-time" net
 
 ```bash
 npm install
-npm run data        # downloads MC1_release.zip + builds public/data/sailor_ego.json (1-hop ego-network)
+npm run data        # downloads MC1_release.zip + builds all three datasets into public/data/
 npm run dev         # http://localhost:5173
 ```
 
-`npm run data` runs `scripts/build_subgraph.py`. Pass a hop count for a wider neighborhood:
-`python scripts/build_subgraph.py 2` (≈1,200 artists — needs filtering to stay readable).
+`npm run data` runs all three builders (`build_subgraph.py`, `build_genre_spread.py`,
+`build_rising_stars.py`). The generated JSON is committed, so the app also runs straight after
+`npm install` without this step. Individual builders: `npm run data:ego | data:genre | data:stars`.
+For a wider artist neighborhood: `python scripts/build_subgraph.py 2` (≈1,200 artists).
 
 ## Project layout
 
@@ -39,19 +53,26 @@ src/
   main.js
   App.vue             coordinator: loads data, crossfilter, shared selection/year state
   widgets/
-    InfluenceNetwork.vue   ← the original D3 centerpiece
+    InfluenceNetwork.vue   ← the original D3 centerpiece (Task 1)
     Timeline.vue           brushable year histogram
     Ranking.vue            top influencers
     DetailPanel.vue        selected-artist profile
-  lib/colors.js       genre / edge-type color scales
+    GenreSpread.vue        stacked-area genre spread (Task 2)
+    BarList.vue            reusable ranked bars
+    RisingStars.vue        career-trajectory comparison (Task 3)
+    StarLeaderboard.vue    scored rising-star leaderboard
+  lib/colors.js       genre / edge-type / score color scales
 scripts/
-  inspect_mc1.py      downloads + prints the raw graph schema
-  build_subgraph.py   projects work-level influence → people, extracts Sailor's ego-network
+  inspect_mc1.py        downloads + prints the raw graph schema
+  build_subgraph.py     work-level influence → people; Sailor's ego-network → sailor_ego.json
+  build_genre_spread.py global Oceanus Folk spread by year/genre → genre_spread.json
+  build_rising_stars.py Rising Star Score + trajectories → rising_stars.json
 data/
   raw/                original VAST MC1 files (git-ignored; redistributable)
   processed/          slim derived JSON (canonical)
   README.md           full schema + edge-direction semantics
-public/data/          served copy of sailor_ego.json
+public/data/          served copies the app fetches (sailor_ego, genre_spread, rising_stars)
+report/               LaTeX report + figures
 ```
 
 ## Data

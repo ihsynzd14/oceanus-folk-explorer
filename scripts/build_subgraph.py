@@ -7,7 +7,7 @@ Influence in MC1 is encoded at the WORK level. We project it to PEOPLE:
 We then take Sailor Shift's k-hop neighborhood on that person-influence graph and
 emit nodes + influence edges + collaboration edges to data/processed/sailor_ego.json.
 
-Run: python scripts/build_subgraph.py [hops]   (default hops=2)
+Run: python scripts/build_subgraph.py [hops]   (default hops=1, the readable view)
 """
 import json
 import os
@@ -23,7 +23,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 GRAPH = os.path.join(ROOT, "data", "raw", "MC1_release", "MC1_graph.json")
 OUT_DIR = os.path.join(ROOT, "data", "processed")
 SAILOR_ID = 17255
-HOPS = int(sys.argv[1]) if len(sys.argv) > 1 else 2
+HOPS = int(sys.argv[1]) if len(sys.argv) > 1 else 1
 
 INFLUENCE = {"InStyleOf", "InterpolatesFrom", "CoverOf", "LyricalReferenceTo", "DirectlySamples"}
 CREATOR = {"PerformerOf", "ComposerOf", "LyricistOf"}  # Person -> Work (authorship for influence)

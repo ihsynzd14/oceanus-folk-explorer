@@ -124,6 +124,13 @@ const influenced = computed(() => {
 function select(id) { selectedId.value = id }
 function resetToCenter() { selectedId.value = center.value }
 
+// cross-view linking: which artists exist in the influence network (Sailor's ego)
+const egoIds = computed(() => new Set(allNodes.value.map((n) => n.id)))
+function selectInNetwork(id) {
+  selectedId.value = id
+  view.value = 'artist'
+}
+
 // Task 2 derived lists (drop the genre's self-reference to highlight external genres)
 const drewFrom = computed(() =>
   (genre.value?.drewFrom || [])
@@ -332,7 +339,10 @@ function toggleStar(id) {
           :benchmark="stars.benchmarks[0]"
           :weights="stars.weights"
           :selected-ids="starSelection"
+          :ego-ids="egoIds"
+          :selected-id="selectedId"
           @toggle="toggleStar"
+          @open="selectInNetwork"
         />
       </aside>
     </div>

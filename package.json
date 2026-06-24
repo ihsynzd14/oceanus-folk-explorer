@@ -8,7 +8,10 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "data": "python scripts/build_subgraph.py"
+    "data": "python scripts/build_subgraph.py && python scripts/build_genre_spread.py && python scripts/build_rising_stars.py",
+    "data:ego": "python scripts/build_subgraph.py",
+    "data:genre": "python scripts/build_genre_spread.py",
+    "data:stars": "python scripts/build_rising_stars.py"
   },
   "dependencies": {
     "crossfilter2": "^1.5.4",

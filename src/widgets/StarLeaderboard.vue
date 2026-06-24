@@ -3,6 +3,8 @@
  * StarLeaderboard — ranked rising-star candidates with a transparent score breakdown.
  * Each row's bar is the weighted Rising Star Score, segmented by its five components,
  * so the analyst sees WHY an artist ranks. Click a row to add/remove it from the chart.
+ * The ↗ button (shown when the artist exists in Sailor's influence network) jumps to
+ * the Artist view focused on them — linking the prediction back to the relationships.
  */
 import { computed } from 'vue'
 import { SCORE_PARTS, SCORE_LABELS, scoreColor } from '../lib/colors.js'
@@ -12,8 +14,10 @@ const props = defineProps({
   benchmark: { type: [Object, null], default: null },
   weights: { type: Object, default: () => ({}) },
   selectedIds: { type: Array, default: () => [] },
+  egoIds: { type: Object, default: () => new Set() },
+  selectedId: { type: [Number, null], default: null },
 })
-const emit = defineEmits(['toggle'])
+const emit = defineEmits(['toggle', 'open'])
 
 const maxScore = computed(() =>
   Math.max(0.001, ...[props.benchmark, ...props.predicted].filter(Boolean).map((d) => d.score))
@@ -21,13 +25,12 @@ const maxScore = computed(() =>
 function segments(row) {
   return SCORE_PARTS.map((p) => ({
     key: p,
-    // contribution of this component to the final score
     w: (row.parts?.[p] || 0) * (props.weights[p] || 0),
     color: scoreColor(p),
   }))
 }
-function barPct(row) { return (row.score / maxScore.value) * 100 }
-const isSel = (id) => props.selectedIds.includes(id)
+const inChart = (id) => props.selectedIds.includes(id)
+const inNetwork = (id) => props.egoIds.has(id)
 </script>
 
 <template>
@@ -36,12 +39,16 @@ const isSel = (id) => props.selectedIds.includes(id)
     <div
       v-if="benchmark"
       class="cursor-pointer rounded-lg border border-slate-600 bg-slate-800/70 p-2"
-      :class="isSel(benchmark.id) ? 'ring-1 ring-white/60' : ''"
+      :class="[inChart(benchmark.id) ? 'ring-1 ring-white/60' : '', benchmark.id === selectedId ? 'border-l-4 border-l-cyan-400' : '']"
       @click="emit('toggle', benchmark.id)"
     >
-      <div class="flex items-center justify-between">
-        <span class="font-medium text-white">★ {{ benchmark.name }} <span class="text-slate-400">(benchmark)</span></span>
-        <span class="tabular-nums text-slate-300">{{ benchmark.score.toFixed(2) }}</span>
+      <div class="flex items-center justify-between gap-1">
+        <span class="truncate font-medium text-white">★ {{ benchmark.name }} <span class="text-slate-400">(benchmark)</span></span>
+        <span class="flex shrink-0 items-center gap-1">
+          <button v-if="inNetwork(benchmark.id)" class="rounded px-1 text-slate-400 hover:bg-slate-700 hover:text-cyan-300"
+                  title="Show in influence network" @click.stop="emit('open', benchmark.id)">↗</button>
+          <span class="tabular-nums text-slate-300">{{ benchmark.score.toFixed(2) }}</span>
+        </span>
       </div>
       <div class="mt-1 flex h-2 w-full overflow-hidden rounded bg-slate-700/50">
         <div v-for="s in segments(benchmark)" :key="s.key"
@@ -55,17 +62,21 @@ const isSel = (id) => props.selectedIds.includes(id)
         v-for="(row, i) in predicted"
         :key="row.id"
         class="cursor-pointer rounded-lg p-2 hover:bg-slate-800"
-        :class="isSel(row.id) ? 'bg-slate-800 ring-1 ring-cyan-400/50' : ''"
+        :class="[inChart(row.id) ? 'bg-slate-800 ring-1 ring-cyan-400/50' : '', row.id === selectedId ? 'border-l-4 border-l-cyan-400' : '']"
         @click="emit('toggle', row.id)"
       >
-        <div class="flex items-center justify-between gap-2">
+        <div class="flex items-center justify-between gap-1">
           <span class="truncate text-slate-200">
             <span class="text-slate-500">{{ i + 1 }}.</span> {{ row.name }}
             <span class="text-slate-500">· debut {{ row.debut }}</span>
           </span>
-          <span class="shrink-0 tabular-nums text-slate-300">{{ row.score.toFixed(2) }}</span>
+          <span class="flex shrink-0 items-center gap-1">
+            <button v-if="inNetwork(row.id)" class="rounded px-1 text-slate-400 hover:bg-slate-700 hover:text-cyan-300"
+                    title="Show in influence network" @click.stop="emit('open', row.id)">↗</button>
+            <span class="tabular-nums text-slate-300">{{ row.score.toFixed(2) }}</span>
+          </span>
         </div>
-        <div class="mt-1 flex h-2 w-full overflow-hidden rounded bg-slate-700/40" :style="{ maxWidth: barPct(row) + '%' }">
+        <div class="mt-1 flex h-2 w-full overflow-hidden rounded bg-slate-700/40" :style="{ maxWidth: (row.score / maxScore * 100) + '%' }">
           <div v-for="s in segments(row)" :key="s.key"
                :style="{ width: (s.w / row.score * 100) + '%', background: s.color }"></div>
         </div>

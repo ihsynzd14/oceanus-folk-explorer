@@ -9,13 +9,14 @@ import GenreSpread from './widgets/GenreSpread.vue'
 import BarList from './widgets/BarList.vue'
 import RisingStars from './widgets/RisingStars.vue'
 import StarLeaderboard from './widgets/StarLeaderboard.vue'
-import { genreColor } from './lib/colors.js'
+import { genreColor, scoreColor } from './lib/colors.js'
 
 const loading = ref(true)
 const error = ref(null)
 const view = ref('artist') // 'artist' | 'genre' | 'stars'
 const genre = shallowRef(null)
 const stars = shallowRef(null)
+const meta = shallowRef(null)
 const starSelection = ref([])
 
 const allNodes = shallowRef([])
@@ -75,6 +76,9 @@ onMounted(async () => {
         ...(bench != null ? [bench] : []),
       ]
     }
+
+    const mt = await fetch('/data/meta.json') // whole-graph summary (non-fatal if absent)
+    if (mt.ok) meta.value = await mt.json()
   } catch (e) {
     error.value = e.message
   } finally {
@@ -381,9 +385,7 @@ const scoredBenchmark = computed(() => {
           <div class="flex flex-col gap-1.5 px-2 pb-2">
             <p class="text-[10px] text-slate-500">Drag a slider to see how the ranking changes.</p>
             <label v-for="(_v, k) in weights" :key="k" class="flex items-center gap-2 text-[11px]">
-              <span class="inline-block h-2 w-2 shrink-0 rounded-sm"
-                    :style="{ background: ['recentNotable','notableGrowth','influenceReach','oceanusAffinity','youth'].includes(k)
-                              ? ['#22d3ee','#34d399','#a78bfa','#fbbf24','#fb7185'][['recentNotable','notableGrowth','influenceReach','oceanusAffinity','youth'].indexOf(k)] : '#64748b' }"></span>
+              <span class="inline-block h-2 w-2 shrink-0 rounded-sm" :style="{ background: scoreColor(k) }"></span>
               <span class="w-28 shrink-0 text-slate-300">{{
                 k === 'recentNotable' ? 'Recent hits'
                 : k === 'notableGrowth' ? 'Momentum'
@@ -414,5 +416,17 @@ const scoredBenchmark = computed(() => {
       </aside>
     </div>
     </main>
+
+    <!-- whole-graph provenance -->
+    <footer
+      v-if="meta && !loading && !error"
+      class="border-t border-slate-700 bg-slate-900/80 px-5 py-1.5 text-center text-[11px] text-slate-500"
+    >
+      Full MC1 knowledge graph:
+      <span class="text-slate-300">{{ meta.nodes.toLocaleString() }}</span> nodes ·
+      <span class="text-slate-300">{{ meta.edges.toLocaleString() }}</span> edges ·
+      <span class="text-slate-300">{{ meta.components }}</span> connected components ·
+      {{ Object.keys(meta.nodeTypes).length }} node types · {{ Object.keys(meta.edgeTypes).length }} edge types
+    </footer>
   </div>
 </template>

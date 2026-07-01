@@ -33,7 +33,7 @@ function render() {
     .attr('y', (d) => y(d[1]))
     .attr('width', (d) => Math.max(1, xScale(d[0] + 1) - xScale(d[0]) - 1))
     .attr('height', (d) => H - M.bottom - y(d[1]))
-    .attr('fill', '#22d3ee')
+    .attr('fill', '#56B4E9')
     .attr('opacity', 0.7)
 
   // axis

@@ -1,1 +1,1658 @@
-{"refYear": 2040, "recentWindow": 5, "weights": {"recentNotable": 0.3, "notableGrowth": 0.2, "influenceReach": 0.2, "oceanusAffinity": 0.2, "youth": 0.1}, "predicted": [{"id": 17296, "name": "Coralia Bellweather", "debut": 1995, "total_works": 5, "oceanus_works": 5, "total_notable": 5, "recent_notable": 1, "influence_reach": 35, "score": 0.5862315352534274, "parts": {"recentNotable": 0.143, "notableGrowth": 1.0, "influenceReach": 0.563, "oceanusAffinity": 1.0, "youth": 0.308}}, {"id": 17309, "name": "Levi Holloway", "debut": 1993, "total_works": 4, "oceanus_works": 4, "total_notable": 4, "recent_notable": 1, "influence_reach": 24, "score": 0.5716964065839174, "parts": {"recentNotable": 0.143, "notableGrowth": 1.0, "influenceReach": 0.506, "oceanusAffinity": 1.0, "youth": 0.277}}, {"id": 17310, "name": "Marin Thorne", "debut": 1993, "total_works": 4, "oceanus_works": 4, "total_notable": 4, "recent_notable": 1, "influence_reach": 24, "score": 0.5716964065839174, "parts": {"recentNotable": 0.143, "notableGrowth": 1.0, "influenceReach": 0.506, "oceanusAffinity": 1.0, "youth": 0.277}}, {"id": 17311, "name": "Jonah Calloway", "debut": 1993, "total_works": 4, "oceanus_works": 4, "total_notable": 4, "recent_notable": 1, "influence_reach": 24, "score": 0.5716964065839174, "parts": {"recentNotable": 0.143, "notableGrowth": 1.0, "influenceReach": 0.506, "oceanusAffinity": 1.0, "youth": 0.277}}, {"id": 4355, "name": "Ping Peng", "debut": 2024, "total_works": 3, "oceanus_works": 2, "total_notable": 3, "recent_notable": 1, "influence_reach": 6, "score": 0.5127215597839359, "parts": {"recentNotable": 0.143, "notableGrowth": 1.0, "influenceReach": 0.306, "oceanusAffinity": 0.667, "youth": 0.754}}, {"id": 4356, "name": "Xia Jia", "debut": 2018, "total_works": 6, "oceanus_works": 2, "total_notable": 6, "recent_notable": 1, "influence_reach": 17, "score": 0.46650200586244694, "parts": {"recentNotable": 0.143, "notableGrowth": 1.0, "influenceReach": 0.454, "oceanusAffinity": 0.333, "youth": 0.662}}, {"id": 17256, "name": "Maya Jensen", "debut": 2024, "total_works": 5, "oceanus_works": 5, "total_notable": 5, "recent_notable": 1, "influence_reach": 24, "score": 0.41938871427622515, "parts": {"recentNotable": 0.143, "notableGrowth": 0.0, "influenceReach": 0.506, "oceanusAffinity": 1.0, "youth": 0.754}}, {"id": 1843, "name": "Chao Tan", "debut": 2010, "total_works": 5, "oceanus_works": 4, "total_notable": 5, "recent_notable": 0, "influence_reach": 580, "score": 0.41384615384615386, "parts": {"recentNotable": 0.0, "notableGrowth": 0.0, "influenceReach": 1.0, "oceanusAffinity": 0.8, "youth": 0.538}}, {"id": 3502, "name": "Valkyris", "debut": 2007, "total_works": 3, "oceanus_works": 3, "total_notable": 3, "recent_notable": 0, "influence_reach": 105, "score": 0.39577033605015133, "parts": {"recentNotable": 0.0, "notableGrowth": 0.0, "influenceReach": 0.733, "oceanusAffinity": 1.0, "youth": 0.492}}, {"id": 3503, "name": "Constance Guibert", "debut": 2007, "total_works": 3, "oceanus_works": 3, "total_notable": 3, "recent_notable": 0, "influence_reach": 105, "score": 0.39577033605015133, "parts": {"recentNotable": 0.0, "notableGrowth": 0.0, "influenceReach": 0.733, "oceanusAffinity": 1.0, "youth": 0.492}}, {"id": 17257, "name": "Lila \"Lilly\" Hartman", "debut": 2024, "total_works": 3, "oceanus_works": 3, "total_notable": 3, "recent_notable": 0, "influence_reach": 24, "score": 0.3765315714190823, "parts": {"recentNotable": 0.0, "notableGrowth": 0.0, "influenceReach": 0.506, "oceanusAffinity": 1.0, "youth": 0.754}}, {"id": 17258, "name": "Jade Thompson", "debut": 2024, "total_works": 3, "oceanus_works": 3, "total_notable": 3, "recent_notable": 0, "influence_reach": 24, "score": 0.3765315714190823, "parts": {"recentNotable": 0.0, "notableGrowth": 0.0, "influenceReach": 0.506, "oceanusAffinity": 1.0, "youth": 0.754}}, {"id": 17259, "name": "Sophie Ramirez", "debut": 2024, "total_works": 4, "oceanus_works": 4, "total_notable": 4, "recent_notable": 0, "influence_reach": 24, "score": 0.3765315714190823, "parts": {"recentNotable": 0.0, "notableGrowth": 0.0, "influenceReach": 0.506, "oceanusAffinity": 1.0, "youth": 0.754}}, {"id": 4351, "name": "Alfred Thibault", "debut": 2004, "total_works": 3, "oceanus_works": 3, "total_notable": 3, "recent_notable": 0, "influence_reach": 31, "score": 0.35351944182669715, "parts": {"recentNotable": 0.0, "notableGrowth": 0.0, "influenceReach": 0.545, "oceanusAffinity": 1.0, "youth": 0.446}}, {"id": 17323, "name": "Orin Caldwell", "debut": 2005, "total_works": 4, "oceanus_works": 4, "total_notable": 4, "recent_notable": 0, "influence_reach": 27, "score": 0.3508619372472154, "parts": {"recentNotable": 0.0, "notableGrowth": 0.0, "influenceReach": 0.524, "oceanusAffinity": 1.0, "youth": 0.462}}], "benchmarks": [{"id": 17255, "name": "Sailor Shift", "debut": 2024, "total_works": 38, "oceanus_works": 36, "total_notable": 25, "recent_notable": 7, "influence_reach": 29, "score": 0.671734358425902, "parts": {"recentNotable": 1.0, "notableGrowth": 0.0, "influenceReach": 0.534, "oceanusAffinity": 0.947, "youth": 0.754}}], "traj": {"4355": [[2024, 0, 1], [2025, 0, 1], [2026, 0, 1], [2027, 0, 1], [2028, 1, 2], [2029, 2, 3], [2030, 2, 3], [2031, 2, 3], [2032, 2, 3], [2033, 2, 3], [2034, 2, 3], [2035, 2, 3], [2036, 2, 3], [2037, 2, 3], [2038, 2, 3], [2039, 2, 3], [2040, 3, 3]], "4356": [[2018, 1, 1], [2019, 1, 1], [2020, 2, 2], [2021, 2, 2], [2022, 2, 2], [2023, 2, 2], [2024, 2, 3], [2025, 3, 4], [2026, 3, 4], [2027, 3, 4], [2028, 4, 5], [2029, 5, 6], [2030, 5, 6], [2031, 5, 6], [2032, 5, 6], [2033, 5, 6], [2034, 5, 6], [2035, 5, 6], [2036, 5, 6], [2037, 5, 6], [2038, 5, 6], [2039, 5, 6], [2040, 6, 6]], "17255": [[2024, 1, 1], [2025, 2, 2], [2026, 3, 3], [2027, 3, 3], [2028, 5, 8], [2029, 6, 9], [2030, 8, 14], [2031, 11, 18], [2032, 12, 20], [2033, 14, 22], [2034, 17, 27], [2035, 18, 28], [2036, 20, 31], [2037, 21, 32], [2038, 24, 35], [2039, 24, 35], [2040, 25, 38]], "17256": [[2024, 1, 1], [2025, 2, 2], [2026, 3, 3], [2027, 3, 3], [2028, 3, 3], [2029, 3, 3], [2030, 3, 3], [2031, 3, 3], [2032, 3, 3], [2033, 4, 4], [2034, 4, 4], [2035, 4, 4], [2036, 4, 4], [2037, 5, 5]], "17296": [[1995, 1, 1], [1996, 1, 1], [1997, 2, 2], [1998, 2, 2], [1999, 3, 3], [2000, 3, 3], [2001, 4, 4], [2002, 4, 4], [2003, 4, 4], [2004, 4, 4], [2005, 4, 4], [2006, 4, 4], [2007, 4, 4], [2008, 4, 4], [2009, 4, 4], [2010, 4, 4], [2011, 4, 4], [2012, 4, 4], [2013, 4, 4], [2014, 4, 4], [2015, 4, 4], [2016, 4, 4], [2017, 4, 4], [2018, 4, 4], [2019, 4, 4], [2020, 4, 4], [2021, 4, 4], [2022, 4, 4], [2023, 4, 4], [2024, 4, 4], [2025, 4, 4], [2026, 4, 4], [2027, 4, 4], [2028, 4, 4], [2029, 4, 4], [2030, 4, 4], [2031, 4, 4], [2032, 4, 4], [2033, 4, 4], [2034, 4, 4], [2035, 4, 4], [2036, 5, 5]], "1843": [[2010, 2, 2], [2011, 2, 2], [2012, 2, 2], [2013, 2, 2], [2014, 2, 2], [2015, 2, 2], [2016, 2, 2], [2017, 3, 3], [2018, 3, 3], [2019, 3, 3], [2020, 3, 3], [2021, 3, 3], [2022, 3, 3], [2023, 5, 5]], "17309": [[1993, 1, 1], [1994, 2, 2], [1995, 3, 3], [1996, 3, 3], [1997, 3, 3], [1998, 3, 3], [1999, 3, 3], [2000, 3, 3], [2001, 3, 3], [2002, 3, 3], [2003, 3, 3], [2004, 3, 3], [2005, 3, 3], [2006, 3, 3], [2007, 3, 3], [2008, 3, 3], [2009, 3, 3], [2010, 3, 3], [2011, 3, 3], [2012, 3, 3], [2013, 3, 3], [2014, 3, 3], [2015, 3, 3], [2016, 3, 3], [2017, 3, 3], [2018, 3, 3], [2019, 3, 3], [2020, 3, 3], [2021, 3, 3], [2022, 3, 3], [2023, 3, 3], [2024, 3, 3], [2025, 3, 3], [2026, 3, 3], [2027, 3, 3], [2028, 3, 3], [2029, 3, 3], [2030, 3, 3], [2031, 3, 3], [2032, 3, 3], [2033, 3, 3], [2034, 3, 3], [2035, 3, 3], [2036, 4, 4]], "17310": [[1993, 1, 1], [1994, 2, 2], [1995, 3, 3], [1996, 3, 3], [1997, 3, 3], [1998, 3, 3], [1999, 3, 3], [2000, 3, 3], [2001, 3, 3], [2002, 3, 3], [2003, 3, 3], [2004, 3, 3], [2005, 3, 3], [2006, 3, 3], [2007, 3, 3], [2008, 3, 3], [2009, 3, 3], [2010, 3, 3], [2011, 3, 3], [2012, 3, 3], [2013, 3, 3], [2014, 3, 3], [2015, 3, 3], [2016, 3, 3], [2017, 3, 3], [2018, 3, 3], [2019, 3, 3], [2020, 3, 3], [2021, 3, 3], [2022, 3, 3], [2023, 3, 3], [2024, 3, 3], [2025, 3, 3], [2026, 3, 3], [2027, 3, 3], [2028, 3, 3], [2029, 3, 3], [2030, 3, 3], [2031, 3, 3], [2032, 3, 3], [2033, 3, 3], [2034, 3, 3], [2035, 3, 3], [2036, 3, 3], [2037, 3, 3], [2038, 3, 3], [2039, 3, 3], [2040, 4, 4]], "17311": [[1993, 1, 1], [1994, 2, 2], [1995, 3, 3], [1996, 3, 3], [1997, 3, 3], [1998, 3, 3], [1999, 3, 3], [2000, 3, 3], [2001, 3, 3], [2002, 3, 3], [2003, 3, 3], [2004, 3, 3], [2005, 3, 3], [2006, 3, 3], [2007, 3, 3], [2008, 3, 3], [2009, 3, 3], [2010, 3, 3], [2011, 3, 3], [2012, 3, 3], [2013, 3, 3], [2014, 3, 3], [2015, 3, 3], [2016, 3, 3], [2017, 3, 3], [2018, 3, 3], [2019, 3, 3], [2020, 3, 3], [2021, 3, 3], [2022, 3, 3], [2023, 3, 3], [2024, 3, 3], [2025, 3, 3], [2026, 3, 3], [2027, 3, 3], [2028, 3, 3], [2029, 3, 3], [2030, 3, 3], [2031, 3, 3], [2032, 3, 3], [2033, 3, 3], [2034, 3, 3], [2035, 3, 3], [2036, 3, 3], [2037, 3, 3], [2038, 3, 3], [2039, 3, 3], [2040, 4, 4]]}}
+{
+    "refYear": 2040,
+    "recentWindow": 5,
+    "weights": {
+        "recentNotable": 0.3,
+        "notableGrowth": 0.2,
+        "influenceReach": 0.2,
+        "oceanusAffinity": 0.2,
+        "youth": 0.1
+    },
+    "predicted": [
+        {
+            "id": 17296,
+            "name": "Coralia Bellweather",
+            "debut": 1995,
+            "total_works": 5,
+            "oceanus_works": 5,
+            "total_notable": 5,
+            "recent_notable": 1,
+            "influence_reach": 35,
+            "score": 0.5862315352534274,
+            "parts": {
+                "recentNotable": 0.143,
+                "notableGrowth": 1.0,
+                "influenceReach": 0.563,
+                "oceanusAffinity": 1.0,
+                "youth": 0.308
+            }
+        },
+        {
+            "id": 17309,
+            "name": "Levi Holloway",
+            "debut": 1993,
+            "total_works": 4,
+            "oceanus_works": 4,
+            "total_notable": 4,
+            "recent_notable": 1,
+            "influence_reach": 24,
+            "score": 0.5716964065839174,
+            "parts": {
+                "recentNotable": 0.143,
+                "notableGrowth": 1.0,
+                "influenceReach": 0.506,
+                "oceanusAffinity": 1.0,
+                "youth": 0.277
+            }
+        },
+        {
+            "id": 17310,
+            "name": "Marin Thorne",
+            "debut": 1993,
+            "total_works": 4,
+            "oceanus_works": 4,
+            "total_notable": 4,
+            "recent_notable": 1,
+            "influence_reach": 24,
+            "score": 0.5716964065839174,
+            "parts": {
+                "recentNotable": 0.143,
+                "notableGrowth": 1.0,
+                "influenceReach": 0.506,
+                "oceanusAffinity": 1.0,
+                "youth": 0.277
+            }
+        },
+        {
+            "id": 17311,
+            "name": "Jonah Calloway",
+            "debut": 1993,
+            "total_works": 4,
+            "oceanus_works": 4,
+            "total_notable": 4,
+            "recent_notable": 1,
+            "influence_reach": 24,
+            "score": 0.5716964065839174,
+            "parts": {
+                "recentNotable": 0.143,
+                "notableGrowth": 1.0,
+                "influenceReach": 0.506,
+                "oceanusAffinity": 1.0,
+                "youth": 0.277
+            }
+        },
+        {
+            "id": 4355,
+            "name": "Ping Peng",
+            "debut": 2024,
+            "total_works": 3,
+            "oceanus_works": 2,
+            "total_notable": 3,
+            "recent_notable": 1,
+            "influence_reach": 6,
+            "score": 0.5127215597839359,
+            "parts": {
+                "recentNotable": 0.143,
+                "notableGrowth": 1.0,
+                "influenceReach": 0.306,
+                "oceanusAffinity": 0.667,
+                "youth": 0.754
+            }
+        },
+        {
+            "id": 4356,
+            "name": "Xia Jia",
+            "debut": 2018,
+            "total_works": 6,
+            "oceanus_works": 2,
+            "total_notable": 6,
+            "recent_notable": 1,
+            "influence_reach": 17,
+            "score": 0.46650200586244694,
+            "parts": {
+                "recentNotable": 0.143,
+                "notableGrowth": 1.0,
+                "influenceReach": 0.454,
+                "oceanusAffinity": 0.333,
+                "youth": 0.662
+            }
+        },
+        {
+            "id": 17256,
+            "name": "Maya Jensen",
+            "debut": 2024,
+            "total_works": 5,
+            "oceanus_works": 5,
+            "total_notable": 5,
+            "recent_notable": 1,
+            "influence_reach": 24,
+            "score": 0.41938871427622515,
+            "parts": {
+                "recentNotable": 0.143,
+                "notableGrowth": 0.0,
+                "influenceReach": 0.506,
+                "oceanusAffinity": 1.0,
+                "youth": 0.754
+            }
+        },
+        {
+            "id": 1843,
+            "name": "Chao Tan",
+            "debut": 2010,
+            "total_works": 5,
+            "oceanus_works": 4,
+            "total_notable": 5,
+            "recent_notable": 0,
+            "influence_reach": 580,
+            "score": 0.41384615384615386,
+            "parts": {
+                "recentNotable": 0.0,
+                "notableGrowth": 0.0,
+                "influenceReach": 1.0,
+                "oceanusAffinity": 0.8,
+                "youth": 0.538
+            }
+        },
+        {
+            "id": 3502,
+            "name": "Valkyris",
+            "debut": 2007,
+            "total_works": 3,
+            "oceanus_works": 3,
+            "total_notable": 3,
+            "recent_notable": 0,
+            "influence_reach": 105,
+            "score": 0.39577033605015133,
+            "parts": {
+                "recentNotable": 0.0,
+                "notableGrowth": 0.0,
+                "influenceReach": 0.733,
+                "oceanusAffinity": 1.0,
+                "youth": 0.492
+            }
+        },
+        {
+            "id": 3503,
+            "name": "Constance Guibert",
+            "debut": 2007,
+            "total_works": 3,
+            "oceanus_works": 3,
+            "total_notable": 3,
+            "recent_notable": 0,
+            "influence_reach": 105,
+            "score": 0.39577033605015133,
+            "parts": {
+                "recentNotable": 0.0,
+                "notableGrowth": 0.0,
+                "influenceReach": 0.733,
+                "oceanusAffinity": 1.0,
+                "youth": 0.492
+            }
+        },
+        {
+            "id": 17257,
+            "name": "Lila \"Lilly\" Hartman",
+            "debut": 2024,
+            "total_works": 3,
+            "oceanus_works": 3,
+            "total_notable": 3,
+            "recent_notable": 0,
+            "influence_reach": 24,
+            "score": 0.3765315714190823,
+            "parts": {
+                "recentNotable": 0.0,
+                "notableGrowth": 0.0,
+                "influenceReach": 0.506,
+                "oceanusAffinity": 1.0,
+                "youth": 0.754
+            }
+        },
+        {
+            "id": 17258,
+            "name": "Jade Thompson",
+            "debut": 2024,
+            "total_works": 3,
+            "oceanus_works": 3,
+            "total_notable": 3,
+            "recent_notable": 0,
+            "influence_reach": 24,
+            "score": 0.3765315714190823,
+            "parts": {
+                "recentNotable": 0.0,
+                "notableGrowth": 0.0,
+                "influenceReach": 0.506,
+                "oceanusAffinity": 1.0,
+                "youth": 0.754
+            }
+        },
+        {
+            "id": 17259,
+            "name": "Sophie Ramirez",
+            "debut": 2024,
+            "total_works": 4,
+            "oceanus_works": 4,
+            "total_notable": 4,
+            "recent_notable": 0,
+            "influence_reach": 24,
+            "score": 0.3765315714190823,
+            "parts": {
+                "recentNotable": 0.0,
+                "notableGrowth": 0.0,
+                "influenceReach": 0.506,
+                "oceanusAffinity": 1.0,
+                "youth": 0.754
+            }
+        },
+        {
+            "id": 4351,
+            "name": "Alfred Thibault",
+            "debut": 2004,
+            "total_works": 3,
+            "oceanus_works": 3,
+            "total_notable": 3,
+            "recent_notable": 0,
+            "influence_reach": 31,
+            "score": 0.35351944182669715,
+            "parts": {
+                "recentNotable": 0.0,
+                "notableGrowth": 0.0,
+                "influenceReach": 0.545,
+                "oceanusAffinity": 1.0,
+                "youth": 0.446
+            }
+        },
+        {
+            "id": 17323,
+            "name": "Orin Caldwell",
+            "debut": 2005,
+            "total_works": 4,
+            "oceanus_works": 4,
+            "total_notable": 4,
+            "recent_notable": 0,
+            "influence_reach": 27,
+            "score": 0.3508619372472154,
+            "parts": {
+                "recentNotable": 0.0,
+                "notableGrowth": 0.0,
+                "influenceReach": 0.524,
+                "oceanusAffinity": 1.0,
+                "youth": 0.462
+            }
+        }
+    ],
+    "benchmarks": [
+        {
+            "id": 17255,
+            "name": "Sailor Shift",
+            "debut": 2024,
+            "total_works": 38,
+            "oceanus_works": 36,
+            "total_notable": 25,
+            "recent_notable": 7,
+            "influence_reach": 29,
+            "score": 0.671734358425902,
+            "parts": {
+                "recentNotable": 1.0,
+                "notableGrowth": 0.0,
+                "influenceReach": 0.534,
+                "oceanusAffinity": 0.947,
+                "youth": 0.754
+            }
+        }
+    ],
+    "traj": {
+        "4355": [
+            [
+                2024,
+                0,
+                1
+            ],
+            [
+                2025,
+                0,
+                1
+            ],
+            [
+                2026,
+                0,
+                1
+            ],
+            [
+                2027,
+                0,
+                1
+            ],
+            [
+                2028,
+                1,
+                2
+            ],
+            [
+                2029,
+                2,
+                3
+            ],
+            [
+                2030,
+                2,
+                3
+            ],
+            [
+                2031,
+                2,
+                3
+            ],
+            [
+                2032,
+                2,
+                3
+            ],
+            [
+                2033,
+                2,
+                3
+            ],
+            [
+                2034,
+                2,
+                3
+            ],
+            [
+                2035,
+                2,
+                3
+            ],
+            [
+                2036,
+                2,
+                3
+            ],
+            [
+                2037,
+                2,
+                3
+            ],
+            [
+                2038,
+                2,
+                3
+            ],
+            [
+                2039,
+                2,
+                3
+            ],
+            [
+                2040,
+                3,
+                3
+            ]
+        ],
+        "4356": [
+            [
+                2018,
+                1,
+                1
+            ],
+            [
+                2019,
+                1,
+                1
+            ],
+            [
+                2020,
+                2,
+                2
+            ],
+            [
+                2021,
+                2,
+                2
+            ],
+            [
+                2022,
+                2,
+                2
+            ],
+            [
+                2023,
+                2,
+                2
+            ],
+            [
+                2024,
+                2,
+                3
+            ],
+            [
+                2025,
+                3,
+                4
+            ],
+            [
+                2026,
+                3,
+                4
+            ],
+            [
+                2027,
+                3,
+                4
+            ],
+            [
+                2028,
+                4,
+                5
+            ],
+            [
+                2029,
+                5,
+                6
+            ],
+            [
+                2030,
+                5,
+                6
+            ],
+            [
+                2031,
+                5,
+                6
+            ],
+            [
+                2032,
+                5,
+                6
+            ],
+            [
+                2033,
+                5,
+                6
+            ],
+            [
+                2034,
+                5,
+                6
+            ],
+            [
+                2035,
+                5,
+                6
+            ],
+            [
+                2036,
+                5,
+                6
+            ],
+            [
+                2037,
+                5,
+                6
+            ],
+            [
+                2038,
+                5,
+                6
+            ],
+            [
+                2039,
+                5,
+                6
+            ],
+            [
+                2040,
+                6,
+                6
+            ]
+        ],
+        "17255": [
+            [
+                2024,
+                1,
+                1
+            ],
+            [
+                2025,
+                2,
+                2
+            ],
+            [
+                2026,
+                3,
+                3
+            ],
+            [
+                2027,
+                3,
+                3
+            ],
+            [
+                2028,
+                5,
+                8
+            ],
+            [
+                2029,
+                6,
+                9
+            ],
+            [
+                2030,
+                8,
+                14
+            ],
+            [
+                2031,
+                11,
+                18
+            ],
+            [
+                2032,
+                12,
+                20
+            ],
+            [
+                2033,
+                14,
+                22
+            ],
+            [
+                2034,
+                17,
+                27
+            ],
+            [
+                2035,
+                18,
+                28
+            ],
+            [
+                2036,
+                20,
+                31
+            ],
+            [
+                2037,
+                21,
+                32
+            ],
+            [
+                2038,
+                24,
+                35
+            ],
+            [
+                2039,
+                24,
+                35
+            ],
+            [
+                2040,
+                25,
+                38
+            ]
+        ],
+        "17256": [
+            [
+                2024,
+                1,
+                1
+            ],
+            [
+                2025,
+                2,
+                2
+            ],
+            [
+                2026,
+                3,
+                3
+            ],
+            [
+                2027,
+                3,
+                3
+            ],
+            [
+                2028,
+                3,
+                3
+            ],
+            [
+                2029,
+                3,
+                3
+            ],
+            [
+                2030,
+                3,
+                3
+            ],
+            [
+                2031,
+                3,
+                3
+            ],
+            [
+                2032,
+                3,
+                3
+            ],
+            [
+                2033,
+                4,
+                4
+            ],
+            [
+                2034,
+                4,
+                4
+            ],
+            [
+                2035,
+                4,
+                4
+            ],
+            [
+                2036,
+                4,
+                4
+            ],
+            [
+                2037,
+                5,
+                5
+            ]
+        ],
+        "17296": [
+            [
+                1995,
+                1,
+                1
+            ],
+            [
+                1996,
+                1,
+                1
+            ],
+            [
+                1997,
+                2,
+                2
+            ],
+            [
+                1998,
+                2,
+                2
+            ],
+            [
+                1999,
+                3,
+                3
+            ],
+            [
+                2000,
+                3,
+                3
+            ],
+            [
+                2001,
+                4,
+                4
+            ],
+            [
+                2002,
+                4,
+                4
+            ],
+            [
+                2003,
+                4,
+                4
+            ],
+            [
+                2004,
+                4,
+                4
+            ],
+            [
+                2005,
+                4,
+                4
+            ],
+            [
+                2006,
+                4,
+                4
+            ],
+            [
+                2007,
+                4,
+                4
+            ],
+            [
+                2008,
+                4,
+                4
+            ],
+            [
+                2009,
+                4,
+                4
+            ],
+            [
+                2010,
+                4,
+                4
+            ],
+            [
+                2011,
+                4,
+                4
+            ],
+            [
+                2012,
+                4,
+                4
+            ],
+            [
+                2013,
+                4,
+                4
+            ],
+            [
+                2014,
+                4,
+                4
+            ],
+            [
+                2015,
+                4,
+                4
+            ],
+            [
+                2016,
+                4,
+                4
+            ],
+            [
+                2017,
+                4,
+                4
+            ],
+            [
+                2018,
+                4,
+                4
+            ],
+            [
+                2019,
+                4,
+                4
+            ],
+            [
+                2020,
+                4,
+                4
+            ],
+            [
+                2021,
+                4,
+                4
+            ],
+            [
+                2022,
+                4,
+                4
+            ],
+            [
+                2023,
+                4,
+                4
+            ],
+            [
+                2024,
+                4,
+                4
+            ],
+            [
+                2025,
+                4,
+                4
+            ],
+            [
+                2026,
+                4,
+                4
+            ],
+            [
+                2027,
+                4,
+                4
+            ],
+            [
+                2028,
+                4,
+                4
+            ],
+            [
+                2029,
+                4,
+                4
+            ],
+            [
+                2030,
+                4,
+                4
+            ],
+            [
+                2031,
+                4,
+                4
+            ],
+            [
+                2032,
+                4,
+                4
+            ],
+            [
+                2033,
+                4,
+                4
+            ],
+            [
+                2034,
+                4,
+                4
+            ],
+            [
+                2035,
+                4,
+                4
+            ],
+            [
+                2036,
+                5,
+                5
+            ]
+        ],
+        "1843": [
+            [
+                2010,
+                2,
+                2
+            ],
+            [
+                2011,
+                2,
+                2
+            ],
+            [
+                2012,
+                2,
+                2
+            ],
+            [
+                2013,
+                2,
+                2
+            ],
+            [
+                2014,
+                2,
+                2
+            ],
+            [
+                2015,
+                2,
+                2
+            ],
+            [
+                2016,
+                2,
+                2
+            ],
+            [
+                2017,
+                3,
+                3
+            ],
+            [
+                2018,
+                3,
+                3
+            ],
+            [
+                2019,
+                3,
+                3
+            ],
+            [
+                2020,
+                3,
+                3
+            ],
+            [
+                2021,
+                3,
+                3
+            ],
+            [
+                2022,
+                3,
+                3
+            ],
+            [
+                2023,
+                5,
+                5
+            ]
+        ],
+        "17309": [
+            [
+                1993,
+                1,
+                1
+            ],
+            [
+                1994,
+                2,
+                2
+            ],
+            [
+                1995,
+                3,
+                3
+            ],
+            [
+                1996,
+                3,
+                3
+            ],
+            [
+                1997,
+                3,
+                3
+            ],
+            [
+                1998,
+                3,
+                3
+            ],
+            [
+                1999,
+                3,
+                3
+            ],
+            [
+                2000,
+                3,
+                3
+            ],
+            [
+                2001,
+                3,
+                3
+            ],
+            [
+                2002,
+                3,
+                3
+            ],
+            [
+                2003,
+                3,
+                3
+            ],
+            [
+                2004,
+                3,
+                3
+            ],
+            [
+                2005,
+                3,
+                3
+            ],
+            [
+                2006,
+                3,
+                3
+            ],
+            [
+                2007,
+                3,
+                3
+            ],
+            [
+                2008,
+                3,
+                3
+            ],
+            [
+                2009,
+                3,
+                3
+            ],
+            [
+                2010,
+                3,
+                3
+            ],
+            [
+                2011,
+                3,
+                3
+            ],
+            [
+                2012,
+                3,
+                3
+            ],
+            [
+                2013,
+                3,
+                3
+            ],
+            [
+                2014,
+                3,
+                3
+            ],
+            [
+                2015,
+                3,
+                3
+            ],
+            [
+                2016,
+                3,
+                3
+            ],
+            [
+                2017,
+                3,
+                3
+            ],
+            [
+                2018,
+                3,
+                3
+            ],
+            [
+                2019,
+                3,
+                3
+            ],
+            [
+                2020,
+                3,
+                3
+            ],
+            [
+                2021,
+                3,
+                3
+            ],
+            [
+                2022,
+                3,
+                3
+            ],
+            [
+                2023,
+                3,
+                3
+            ],
+            [
+                2024,
+                3,
+                3
+            ],
+            [
+                2025,
+                3,
+                3
+            ],
+            [
+                2026,
+                3,
+                3
+            ],
+            [
+                2027,
+                3,
+                3
+            ],
+            [
+                2028,
+                3,
+                3
+            ],
+            [
+                2029,
+                3,
+                3
+            ],
+            [
+                2030,
+                3,
+                3
+            ],
+            [
+                2031,
+                3,
+                3
+            ],
+            [
+                2032,
+                3,
+                3
+            ],
+            [
+                2033,
+                3,
+                3
+            ],
+            [
+                2034,
+                3,
+                3
+            ],
+            [
+                2035,
+                3,
+                3
+            ],
+            [
+                2036,
+                4,
+                4
+            ]
+        ],
+        "17310": [
+            [
+                1993,
+                1,
+                1
+            ],
+            [
+                1994,
+                2,
+                2
+            ],
+            [
+                1995,
+                3,
+                3
+            ],
+            [
+                1996,
+                3,
+                3
+            ],
+            [
+                1997,
+                3,
+                3
+            ],
+            [
+                1998,
+                3,
+                3
+            ],
+            [
+                1999,
+                3,
+                3
+            ],
+            [
+                2000,
+                3,
+                3
+            ],
+            [
+                2001,
+                3,
+                3
+            ],
+            [
+                2002,
+                3,
+                3
+            ],
+            [
+                2003,
+                3,
+                3
+            ],
+            [
+                2004,
+                3,
+                3
+            ],
+            [
+                2005,
+                3,
+                3
+            ],
+            [
+                2006,
+                3,
+                3
+            ],
+            [
+                2007,
+                3,
+                3
+            ],
+            [
+                2008,
+                3,
+                3
+            ],
+            [
+                2009,
+                3,
+                3
+            ],
+            [
+                2010,
+                3,
+                3
+            ],
+            [
+                2011,
+                3,
+                3
+            ],
+            [
+                2012,
+                3,
+                3
+            ],
+            [
+                2013,
+                3,
+                3
+            ],
+            [
+                2014,
+                3,
+                3
+            ],
+            [
+                2015,
+                3,
+                3
+            ],
+            [
+                2016,
+                3,
+                3
+            ],
+            [
+                2017,
+                3,
+                3
+            ],
+            [
+                2018,
+                3,
+                3
+            ],
+            [
+                2019,
+                3,
+                3
+            ],
+            [
+                2020,
+                3,
+                3
+            ],
+            [
+                2021,
+                3,
+                3
+            ],
+            [
+                2022,
+                3,
+                3
+            ],
+            [
+                2023,
+                3,
+                3
+            ],
+            [
+                2024,
+                3,
+                3
+            ],
+            [
+                2025,
+                3,
+                3
+            ],
+            [
+                2026,
+                3,
+                3
+            ],
+            [
+                2027,
+                3,
+                3
+            ],
+            [
+                2028,
+                3,
+                3
+            ],
+            [
+                2029,
+                3,
+                3
+            ],
+            [
+                2030,
+                3,
+                3
+            ],
+            [
+                2031,
+                3,
+                3
+            ],
+            [
+                2032,
+                3,
+                3
+            ],
+            [
+                2033,
+                3,
+                3
+            ],
+            [
+                2034,
+                3,
+                3
+            ],
+            [
+                2035,
+                3,
+                3
+            ],
+            [
+                2036,
+                3,
+                3
+            ],
+            [
+                2037,
+                3,
+                3
+            ],
+            [
+                2038,
+                3,
+                3
+            ],
+            [
+                2039,
+                3,
+                3
+            ],
+            [
+                2040,
+                4,
+                4
+            ]
+        ],
+        "17311": [
+            [
+                1993,
+                1,
+                1
+            ],
+            [
+                1994,
+                2,
+                2
+            ],
+            [
+                1995,
+                3,
+                3
+            ],
+            [
+                1996,
+                3,
+                3
+            ],
+            [
+                1997,
+                3,
+                3
+            ],
+            [
+                1998,
+                3,
+                3
+            ],
+            [
+                1999,
+                3,
+                3
+            ],
+            [
+                2000,
+                3,
+                3
+            ],
+            [
+                2001,
+                3,
+                3
+            ],
+            [
+                2002,
+                3,
+                3
+            ],
+            [
+                2003,
+                3,
+                3
+            ],
+            [
+                2004,
+                3,
+                3
+            ],
+            [
+                2005,
+                3,
+                3
+            ],
+            [
+                2006,
+                3,
+                3
+            ],
+            [
+                2007,
+                3,
+                3
+            ],
+            [
+                2008,
+                3,
+                3
+            ],
+            [
+                2009,
+                3,
+                3
+            ],
+            [
+                2010,
+                3,
+                3
+            ],
+            [
+                2011,
+                3,
+                3
+            ],
+            [
+                2012,
+                3,
+                3
+            ],
+            [
+                2013,
+                3,
+                3
+            ],
+            [
+                2014,
+                3,
+                3
+            ],
+            [
+                2015,
+                3,
+                3
+            ],
+            [
+                2016,
+                3,
+                3
+            ],
+            [
+                2017,
+                3,
+                3
+            ],
+            [
+                2018,
+                3,
+                3
+            ],
+            [
+                2019,
+                3,
+                3
+            ],
+            [
+                2020,
+                3,
+                3
+            ],
+            [
+                2021,
+                3,
+                3
+            ],
+            [
+                2022,
+                3,
+                3
+            ],
+            [
+                2023,
+                3,
+                3
+            ],
+            [
+                2024,
+                3,
+                3
+            ],
+            [
+                2025,
+                3,
+                3
+            ],
+            [
+                2026,
+                3,
+                3
+            ],
+            [
+                2027,
+                3,
+                3
+            ],
+            [
+                2028,
+                3,
+                3
+            ],
+            [
+                2029,
+                3,
+                3
+            ],
+            [
+                2030,
+                3,
+                3
+            ],
+            [
+                2031,
+                3,
+                3
+            ],
+            [
+                2032,
+                3,
+                3
+            ],
+            [
+                2033,
+                3,
+                3
+            ],
+            [
+                2034,
+                3,
+                3
+            ],
+            [
+                2035,
+                3,
+                3
+            ],
+            [
+                2036,
+                3,
+                3
+            ],
+            [
+                2037,
+                3,
+                3
+            ],
+            [
+                2038,
+                3,
+                3
+            ],
+            [
+                2039,
+                3,
+                3
+            ],
+            [
+                2040,
+                4,
+                4
+            ]
+        ]
+    }
+}

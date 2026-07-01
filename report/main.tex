@@ -62,8 +62,10 @@ exported as small JSON files that the browser loads quickly.
 
 \section{The Data}
 The graph is a directed multigraph with \textbf{17{,}412 nodes} and \textbf{37{,}857
-edges}, split into 18 connected components. There are five node types and twelve edge
-types. Table~\ref{tab:nodes} lists the node types and Table~\ref{tab:edges} the edges.
+edges}. Computed from the released data it forms \textbf{16 connected components} (the data
+description states 18; the released graph gives 16, almost all in one giant component). There
+are five node types and twelve edge types. Table~\ref{tab:nodes} lists the node types and
+Table~\ref{tab:edges} the edges.
 
 \begin{table}[ht]\centering
 \caption{Node types and their main properties.}\label{tab:nodes}
@@ -165,10 +167,10 @@ while a strong horizontal force pins each node to its year. The result reads fro
 right as a flow of influence through time, instead of a shapeless cloud.
 
 \paragraph{Color.}
-Genre is the main color channel. Oceanus Folk uses a clear cyan so it stands out, and other
-genres use a categorical palette. Influence edges are colored by their type. In the rising
+Genre is the main color channel. Oceanus Folk uses one clear signature blue so it stands out, and
+other genres use a categorical palette. Influence edges are colored by their type. In the rising
 stars view, the five parts of the score each have a fixed color so the same color always
-means the same thing.
+means the same thing. All palettes use the Okabe-Ito scheme, which is colorblind-safe.
 
 \paragraph{Size and shape.}
 Node size in the network grows with the number of other artists an artist influenced, so

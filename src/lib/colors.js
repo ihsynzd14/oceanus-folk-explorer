@@ -9,13 +9,17 @@ export const INFLUENCE_TYPES = [
   'DirectlySamples',
 ]
 
+// All palettes use the Okabe-Ito colorblind-safe scheme
+// (orange #E69F00, sky #56B4E9, green #009E73, yellow #F0E442, blue #0072B2,
+//  vermillion #D55E00, purple #CC79A7, gray #999999).
 export const edgeColor = d3.scaleOrdinal()
   .domain(INFLUENCE_TYPES)
-  .range(['#5eead4', '#fbbf24', '#f472b6', '#a78bfa', '#fb7185'])
+  .range(['#E69F00', '#009E73', '#CC79A7', '#D55E00', '#0072B2'])
 
-// Oceanus Folk gets a signature color; everything else from a categorical scale.
-const OCEANUS = '#22d3ee'
-const otherGenre = d3.scaleOrdinal(d3.schemeTableau10)
+// Oceanus Folk gets a signature color (reserved); everything else from a categorical scale.
+const OCEANUS = '#56B4E9'
+const otherGenre = d3.scaleOrdinal()
+  .range(['#E69F00', '#009E73', '#D55E00', '#CC79A7', '#F0E442', '#0072B2', '#999999'])
 
 export function genreColor(genre) {
   if (!genre) return '#64748b'
@@ -47,7 +51,8 @@ export const SCORE_LABELS = {
 }
 export const scoreColor = d3.scaleOrdinal()
   .domain(SCORE_PARTS)
-  .range(['#22d3ee', '#34d399', '#a78bfa', '#fbbf24', '#fb7185'])
+  .range(['#0072B2', '#009E73', '#CC79A7', '#F0E442', '#D55E00'])
 
-// Stable per-artist line color for the trajectory comparison.
-export const artistColor = d3.scaleOrdinal(d3.schemeTableau10)
+// Stable per-artist line color for the trajectory comparison (Okabe-Ito, CB-safe).
+export const artistColor = d3.scaleOrdinal()
+  .range(['#E69F00', '#009E73', '#D55E00', '#CC79A7', '#F0E442', '#0072B2', '#999999', '#56B4E9'])

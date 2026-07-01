@@ -1,10 +1,10 @@
 <script setup>
 /*
- * StarLeaderboard — ranked rising-star candidates with a transparent score breakdown.
+ * StarLeaderboard - ranked rising-star candidates with a transparent score breakdown.
  * Each row's bar is the weighted Rising Star Score, segmented by its five components,
  * so the analyst sees WHY an artist ranks. Click a row to add/remove it from the chart.
  * The ↗ button (shown when the artist exists in Sailor's influence network) jumps to
- * the Artist view focused on them — linking the prediction back to the relationships.
+ * the Artist view focused on them - linking the prediction back to the relationships.
  */
 import { computed } from 'vue'
 import { SCORE_PARTS, SCORE_LABELS, scoreColor } from '../lib/colors.js'

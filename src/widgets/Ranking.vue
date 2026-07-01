@@ -1,5 +1,5 @@
 <script setup>
-/* Ranking — top artists by out-influence (how many others they influenced). Linked: click selects. */
+/* Ranking - top artists by out-influence (how many others they influenced). Linked: click selects. */
 import { computed } from 'vue'
 import { genreColor, displayName } from '../lib/colors.js'
 

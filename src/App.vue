@@ -206,7 +206,7 @@ const scoredBenchmark = computed(() => {
           Oceanus Folk Explorer
         </h1>
         <p class="text-xs text-slate-400">
-          VAST 2025 · MC1 — the rise of Sailor Shift &amp; the spread of Oceanus Folk
+          VAST 2025 · MC1 - the rise of Sailor Shift &amp; the spread of Oceanus Folk
         </p>
       </div>
 

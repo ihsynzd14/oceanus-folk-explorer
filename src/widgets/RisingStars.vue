@@ -1,8 +1,8 @@
 <script setup>
 /*
- * RisingStars — MC1 Task 3 trajectory comparison.
+ * RisingStars - MC1 Task 3 trajectory comparison.
  * Multi-line chart of each selected artist's CUMULATIVE notable works (chart hits)
- * over time — the popularity curve. Steep recent slopes = rising; Sailor Shift is
+ * over time - the popularity curve. Steep recent slopes = rising; Sailor Shift is
  * drawn dashed as the established benchmark to compare careers against.
  */
 import { ref, onMounted, onBeforeUnmount, watch } from 'vue'

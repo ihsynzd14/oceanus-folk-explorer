@@ -1,5 +1,5 @@
 <script setup>
-/* BarList — simple horizontal ranked bars. Reused for genre / artist rankings. */
+/* BarList - simple horizontal ranked bars. Reused for genre / artist rankings. */
 import { computed } from 'vue'
 
 const props = defineProps({

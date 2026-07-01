@@ -1,6 +1,6 @@
 <script setup>
 /*
- * GenreSpread — MC1 Task 2. Stacked area of works *influenced by Oceanus Folk*
+ * GenreSpread - MC1 Task 2. Stacked area of works *influenced by Oceanus Folk*
  * per year, banded by the genre of the influenced work: the silhouette shows
  * whether the spread was gradual or intermittent, the bands show which genres
  * it reached. A dashed line overlays Oceanus Folk's own releases for comparison.

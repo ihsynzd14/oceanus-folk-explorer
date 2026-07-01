@@ -1,10 +1,10 @@
 <script setup>
 /*
- * InfluenceNetwork — the original D3 centerpiece (CLAUDE.md §7.1).
+ * InfluenceNetwork - the original D3 centerpiece (CLAUDE.md §7.1).
  * "Influence over time": the X axis is the year an artist became active, so
  * influence edges flow left (older / influencer) → right (newer / influenced).
  * A force layout spreads nodes vertically while a strong forceX pins them to
- * their year — this keeps the temporal reading and avoids the force "hairball".
+ * their year - this keeps the temporal reading and avoids the force "hairball".
  */
 import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 import * as d3 from 'd3'

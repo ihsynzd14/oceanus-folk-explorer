@@ -1,5 +1,5 @@
 <script setup>
-/* Timeline — artists active per year, with a brush that filters every linked view. */
+/* Timeline - artists active per year, with a brush that filters every linked view. */
 import { ref, onMounted, watch } from 'vue'
 import * as d3 from 'd3'
 

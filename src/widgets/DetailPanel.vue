@@ -1,5 +1,5 @@
 <script setup>
-/* DetailPanel — selected artist's profile + who influenced them / whom they influenced (clickable). */
+/* DetailPanel - selected artist's profile + who influenced them / whom they influenced (clickable). */
 import { computed } from 'vue'
 import { genreColor, displayName, dominantType } from '../lib/colors.js'
 
@@ -36,8 +36,8 @@ function typesLabel(types) {
     </div>
 
     <div class="grid grid-cols-2 gap-2 text-xs">
-      <div class="rounded bg-slate-800 p-2"><div class="text-slate-400">Main genre</div><div class="text-slate-100">{{ node.top_genre || '—' }}</div></div>
-      <div class="rounded bg-slate-800 p-2"><div class="text-slate-400">Active</div><div class="text-slate-100">{{ node.year || '—' }}<span v-if="node.active_to && node.active_to !== node.year">–{{ node.active_to }}</span></div></div>
+      <div class="rounded bg-slate-800 p-2"><div class="text-slate-400">Main genre</div><div class="text-slate-100">{{ node.top_genre || '-' }}</div></div>
+      <div class="rounded bg-slate-800 p-2"><div class="text-slate-400">Active</div><div class="text-slate-100">{{ node.year || '-' }}<span v-if="node.active_to && node.active_to !== node.year">–{{ node.active_to }}</span></div></div>
       <div class="rounded bg-slate-800 p-2"><div class="text-slate-400">Works</div><div class="text-slate-100">{{ node.n_works }}<span v-if="node.n_notable" class="text-slate-400"> · {{ node.n_notable }} notable</span></div></div>
       <div class="rounded bg-slate-800 p-2"><div class="text-slate-400">Oceanus Folk works</div><div class="text-slate-100">{{ node.oceanus_works }}</div></div>
     </div>
